@@ -27,7 +27,7 @@ namespace NCQ.Test.Gui
         {
             return Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) => {
-                    services.AddGuiDependencies();
+                    services.AddGuiDependencies(context.Configuration);
                 });
         }
     }

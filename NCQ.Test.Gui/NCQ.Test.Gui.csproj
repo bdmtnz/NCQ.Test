@@ -263,6 +263,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NCQ.Test.Domain\NCQ.Test.Domain.csproj">
+      <Project>{044b5df8-740a-4194-b888-33088b94c8d5}</Project>
+      <Name>NCQ.Test.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NCQ.Test.Infrastructure\NCQ.Test.Infrastructure.csproj">
+      <Project>{5e0b7788-c345-4297-a200-829b2cc3c45c}</Project>
+      <Name>NCQ.Test.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

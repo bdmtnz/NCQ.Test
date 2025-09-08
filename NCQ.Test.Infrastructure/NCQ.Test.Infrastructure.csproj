@@ -147,12 +147,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Contexts\SqLiteDbContext.cs" />
+    <Compile Include="Common\GenericRepository.cs" />
+    <Compile Include="Common\UnitOfWork.cs" />
     <Compile Include="Dependencies.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqLite\Tasks\TaskConfiguration.cs" />
+    <Compile Include="SqLite\Terms\Seeders\TermPrioritySeeder.cs" />
+    <Compile Include="SqLite\Terms\Seeders\TermStateSeeder.cs" />
+    <Compile Include="SqLite\Terms\TermConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
