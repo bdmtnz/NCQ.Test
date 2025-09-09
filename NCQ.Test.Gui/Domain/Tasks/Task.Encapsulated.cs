@@ -45,9 +45,9 @@ namespace NCQ.Test.Domain.Tasks
             return this;
         }
 
-        public Task SetCommitment(DateTime? start, DateTime? end)
+        public Task SetCommitment(DateTime commitment)
         {
-            Commitment = DateRange.Create(start, end);
+            Commitment = commitment;
             return this;
         }
     }

@@ -84,6 +84,12 @@
     <Reference Include="ErrorOr, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ErrorOr.2.0.1\lib\netstandard2.0\ErrorOr.dll</HintPath>
     </Reference>
+    <Reference Include="FluentValidation, Version=11.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.11.11.0\lib\netstandard2.0\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation.DependencyInjectionExtensions, Version=11.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.DependencyInjectionExtensions.11.11.0\lib\netstandard2.0\FluentValidation.DependencyInjectionExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.8, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.8\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -282,7 +288,7 @@
     <Compile Include="Domain\Common\RelationalFk.cs" />
     <Compile Include="Domain\Tasks\Task.cs" />
     <Compile Include="Domain\Tasks\Task.Encapsulated.cs" />
-    <Compile Include="Domain\Tasks\ValueObjects\DateRange.cs" />
+    <Compile Include="Domain\Common\DateRange.cs" />
     <Compile Include="Domain\Tasks\ValueObjects\TaskId.cs" />
     <Compile Include="Domain\Terms\Term.cs" />
     <Compile Include="Domain\Terms\Term.Encapsulated.cs" />
@@ -291,12 +297,13 @@
     <Compile Include="Infrastructure\Dependencies.cs" />
     <Compile Include="Infrastructure\SqLite\TaskRepository.cs" />
     <Compile Include="Infrastructure\SqLite\TermRepository.cs" />
-    <Compile Include="Windows\Components\AlterModal.cs">
+    <Compile Include="Windows\Components\Alter\AlterModal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Windows\Components\AlterModal.Designer.cs">
+    <Compile Include="Windows\Components\Alter\AlterModal.Designer.cs">
       <DependentUpon>AlterModal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Components\Alter\AlterModalValidator.cs" />
     <Compile Include="Windows\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,7 +312,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Windows\Components\AlterModal.resx">
+    <EmbeddedResource Include="Windows\Components\Alter\AlterModal.resx">
       <DependentUpon>AlterModal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Main.resx">

@@ -28,51 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlterModal));
             this.WinAccept = new DevExpress.XtraEditors.SimpleButton();
             this.stackPanel1 = new DevExpress.Utils.Layout.StackPanel();
             this.WinCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
+            this.CtrlDescription = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.memoEdit2 = new DevExpress.XtraEditors.MemoEdit();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.CtrlNotes = new DevExpress.XtraEditors.MemoEdit();
+            this.CtrlState = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.CtrlPriority = new DevExpress.XtraEditors.ComboBoxEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.ModalTitle = new DevExpress.XtraEditors.LabelControl();
             this.ModalDesciption = new DevExpress.XtraEditors.LabelControl();
             this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
-            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.CtrlCommitmentEnd = new DevExpress.XtraEditors.DateEdit();
+            this.CtrlCommitmentStart = new DevExpress.XtraEditors.DateEdit();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.ResumenText = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.FormError = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).BeginInit();
             this.stackPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlDescription.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlNotes.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlState.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlPriority.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentEnd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentEnd.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FormError)).BeginInit();
             this.SuspendLayout();
             // 
             // WinAccept
@@ -106,12 +109,12 @@
             this.WinCancel.TabIndex = 2;
             this.WinCancel.Text = "Cancelar";
             // 
-            // memoEdit1
+            // CtrlDescription
             // 
-            this.memoEdit1.Location = new System.Drawing.Point(13, 59);
-            this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(306, 96);
-            this.memoEdit1.TabIndex = 4;
+            this.CtrlDescription.Location = new System.Drawing.Point(13, 59);
+            this.CtrlDescription.Name = "CtrlDescription";
+            this.CtrlDescription.Size = new System.Drawing.Size(306, 96);
+            this.CtrlDescription.TabIndex = 4;
             // 
             // labelControl1
             // 
@@ -129,21 +132,21 @@
             this.labelControl2.TabIndex = 7;
             this.labelControl2.Text = "Notas";
             // 
-            // memoEdit2
+            // CtrlNotes
             // 
-            this.memoEdit2.Location = new System.Drawing.Point(14, 240);
-            this.memoEdit2.Name = "memoEdit2";
-            this.memoEdit2.Size = new System.Drawing.Size(305, 72);
-            this.memoEdit2.TabIndex = 6;
+            this.CtrlNotes.Location = new System.Drawing.Point(14, 240);
+            this.CtrlNotes.Name = "CtrlNotes";
+            this.CtrlNotes.Size = new System.Drawing.Size(305, 72);
+            this.CtrlNotes.TabIndex = 6;
             // 
-            // comboBoxEdit1
+            // CtrlState
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(13, 186);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.CtrlState.Location = new System.Drawing.Point(13, 186);
+            this.CtrlState.Name = "CtrlState";
+            this.CtrlState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(150, 28);
-            this.comboBoxEdit1.TabIndex = 9;
+            this.CtrlState.Size = new System.Drawing.Size(150, 28);
+            this.CtrlState.TabIndex = 9;
             // 
             // labelControl3
             // 
@@ -161,28 +164,28 @@
             this.labelControl4.TabIndex = 12;
             this.labelControl4.Text = "Prioridad";
             // 
-            // comboBoxEdit2
+            // CtrlPriority
             // 
-            this.comboBoxEdit2.Location = new System.Drawing.Point(169, 186);
-            this.comboBoxEdit2.Name = "comboBoxEdit2";
-            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.CtrlPriority.Location = new System.Drawing.Point(169, 186);
+            this.CtrlPriority.Name = "CtrlPriority";
+            this.CtrlPriority.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit2.Size = new System.Drawing.Size(150, 28);
-            this.comboBoxEdit2.TabIndex = 11;
+            this.CtrlPriority.Size = new System.Drawing.Size(150, 28);
+            this.CtrlPriority.TabIndex = 11;
             // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.labelControl9);
             this.groupControl1.Controls.Add(this.labelControl8);
             this.groupControl1.Controls.Add(this.labelControl7);
-            this.groupControl1.Controls.Add(this.memoEdit1);
+            this.groupControl1.Controls.Add(this.CtrlDescription);
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.labelControl1);
-            this.groupControl1.Controls.Add(this.comboBoxEdit2);
-            this.groupControl1.Controls.Add(this.comboBoxEdit1);
+            this.groupControl1.Controls.Add(this.CtrlPriority);
+            this.groupControl1.Controls.Add(this.CtrlState);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.labelControl3);
-            this.groupControl1.Controls.Add(this.memoEdit2);
+            this.groupControl1.Controls.Add(this.CtrlNotes);
             this.groupControl1.Location = new System.Drawing.Point(15, 102);
             this.groupControl1.LookAndFeel.SkinName = "WXI";
             this.groupControl1.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -190,6 +193,36 @@
             this.groupControl1.Size = new System.Drawing.Size(332, 330);
             this.groupControl1.TabIndex = 13;
             this.groupControl1.Text = "Datos básicos";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl9.Appearance.Options.UseForeColor = true;
+            this.labelControl9.Location = new System.Drawing.Point(212, 167);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(6, 13);
+            this.labelControl9.TabIndex = 15;
+            this.labelControl9.Text = "*";
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl8.Appearance.Options.UseForeColor = true;
+            this.labelControl8.Location = new System.Drawing.Point(70, 39);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(6, 13);
+            this.labelControl8.TabIndex = 14;
+            this.labelControl8.Text = "*";
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl7.Appearance.Options.UseForeColor = true;
+            this.labelControl7.Location = new System.Drawing.Point(49, 167);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(6, 13);
+            this.labelControl7.TabIndex = 13;
+            this.labelControl7.Text = "*";
             // 
             // ModalTitle
             // 
@@ -219,7 +252,6 @@
             this.svgImageBox1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgImageBox1.SvgImage")));
             this.svgImageBox1.TabIndex = 16;
             this.svgImageBox1.Text = "svgImageBox1";
-            this.svgImageBox1.Click += new System.EventHandler(this.svgImageBox1_Click);
             // 
             // groupControl2
             // 
@@ -227,8 +259,8 @@
             this.groupControl2.Controls.Add(this.labelControl10);
             this.groupControl2.Controls.Add(this.labelControl6);
             this.groupControl2.Controls.Add(this.labelControl5);
-            this.groupControl2.Controls.Add(this.dateEdit2);
-            this.groupControl2.Controls.Add(this.dateEdit1);
+            this.groupControl2.Controls.Add(this.CtrlCommitmentEnd);
+            this.groupControl2.Controls.Add(this.CtrlCommitmentStart);
             this.groupControl2.Location = new System.Drawing.Point(362, 102);
             this.groupControl2.LookAndFeel.SkinName = "WXI";
             this.groupControl2.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -237,29 +269,33 @@
             this.groupControl2.TabIndex = 17;
             this.groupControl2.Text = "Datos de compromiso";
             // 
-            // dateEdit1
+            // labelControl11
             // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(14, 51);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Size = new System.Drawing.Size(149, 28);
-            this.dateEdit1.TabIndex = 1;
+            this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl11.Appearance.Options.UseForeColor = true;
+            this.labelControl11.Location = new System.Drawing.Point(193, 32);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(6, 13);
+            this.labelControl11.TabIndex = 15;
+            this.labelControl11.Text = "*";
             // 
-            // dateEdit2
+            // labelControl10
             // 
-            this.dateEdit2.EditValue = null;
-            this.dateEdit2.Location = new System.Drawing.Point(169, 51);
-            this.dateEdit2.Name = "dateEdit2";
-            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Size = new System.Drawing.Size(150, 28);
-            this.dateEdit2.TabIndex = 2;
+            this.labelControl10.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl10.Appearance.Options.UseForeColor = true;
+            this.labelControl10.Location = new System.Drawing.Point(41, 32);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(6, 13);
+            this.labelControl10.TabIndex = 14;
+            this.labelControl10.Text = "*";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(169, 32);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(22, 13);
+            this.labelControl6.TabIndex = 12;
+            this.labelControl6.Text = "Final";
             // 
             // labelControl5
             // 
@@ -269,13 +305,29 @@
             this.labelControl5.TabIndex = 11;
             this.labelControl5.Text = "Inicio";
             // 
-            // labelControl6
+            // CtrlCommitmentEnd
             // 
-            this.labelControl6.Location = new System.Drawing.Point(169, 32);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(22, 13);
-            this.labelControl6.TabIndex = 12;
-            this.labelControl6.Text = "Final";
+            this.CtrlCommitmentEnd.EditValue = null;
+            this.CtrlCommitmentEnd.Location = new System.Drawing.Point(169, 51);
+            this.CtrlCommitmentEnd.Name = "CtrlCommitmentEnd";
+            this.CtrlCommitmentEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CtrlCommitmentEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CtrlCommitmentEnd.Size = new System.Drawing.Size(150, 28);
+            this.CtrlCommitmentEnd.TabIndex = 2;
+            // 
+            // CtrlCommitmentStart
+            // 
+            this.CtrlCommitmentStart.EditValue = null;
+            this.CtrlCommitmentStart.Location = new System.Drawing.Point(14, 51);
+            this.CtrlCommitmentStart.Name = "CtrlCommitmentStart";
+            this.CtrlCommitmentStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CtrlCommitmentStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CtrlCommitmentStart.Size = new System.Drawing.Size(149, 28);
+            this.CtrlCommitmentStart.TabIndex = 1;
             // 
             // groupControl3
             // 
@@ -296,55 +348,9 @@
             this.ResumenText.TabIndex = 0;
             this.ResumenText.Text = "Aquí se mostrará el resumen de la tarea";
             // 
-            // labelControl7
+            // FormError
             // 
-            this.labelControl7.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl7.Appearance.Options.UseForeColor = true;
-            this.labelControl7.Location = new System.Drawing.Point(49, 167);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(6, 13);
-            this.labelControl7.TabIndex = 13;
-            this.labelControl7.Text = "*";
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl8.Appearance.Options.UseForeColor = true;
-            this.labelControl8.Location = new System.Drawing.Point(70, 39);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(6, 13);
-            this.labelControl8.TabIndex = 14;
-            this.labelControl8.Text = "*";
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl9.Appearance.Options.UseForeColor = true;
-            this.labelControl9.Location = new System.Drawing.Point(212, 167);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(6, 13);
-            this.labelControl9.TabIndex = 15;
-            this.labelControl9.Text = "*";
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl10.Appearance.Options.UseForeColor = true;
-            this.labelControl10.Location = new System.Drawing.Point(41, 32);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(6, 13);
-            this.labelControl10.TabIndex = 14;
-            this.labelControl10.Text = "*";
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl11.Appearance.Options.UseForeColor = true;
-            this.labelControl11.Location = new System.Drawing.Point(193, 32);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(6, 13);
-            this.labelControl11.TabIndex = 15;
-            this.labelControl11.Text = "*";
+            this.FormError.ContainerControl = this;
             // 
             // AlterModal
             // 
@@ -369,10 +375,10 @@
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).EndInit();
             this.stackPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlDescription.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlNotes.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlState.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlPriority.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -380,13 +386,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentEnd.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentEnd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             this.groupControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FormError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -397,21 +404,21 @@
         private DevExpress.XtraEditors.SimpleButton WinAccept;
         private DevExpress.Utils.Layout.StackPanel stackPanel1;
         private DevExpress.XtraEditors.SimpleButton WinCancel;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
+        private DevExpress.XtraEditors.MemoEdit CtrlDescription;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.MemoEdit memoEdit2;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.MemoEdit CtrlNotes;
+        private DevExpress.XtraEditors.ComboBoxEdit CtrlState;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
+        private DevExpress.XtraEditors.ComboBoxEdit CtrlPriority;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl ModalTitle;
         private DevExpress.XtraEditors.LabelControl ModalDesciption;
         private DevExpress.XtraEditors.SvgImageBox svgImageBox1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private DevExpress.XtraEditors.DateEdit dateEdit2;
+        private DevExpress.XtraEditors.DateEdit CtrlCommitmentStart;
+        private DevExpress.XtraEditors.DateEdit CtrlCommitmentEnd;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.GroupControl groupControl3;
@@ -421,5 +428,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl ResumenText;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider FormError;
     }
 }
