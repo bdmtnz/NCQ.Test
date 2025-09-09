@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NCQ.Test.Infrastructure;
+using NCQ.Test.Gui.Application;
+using NCQ.Test.Gui.Infrastructure;
 
 namespace NCQ.Test.Gui
 {
@@ -10,7 +11,9 @@ namespace NCQ.Test.Gui
         {
             services.AddTransient<Main>();
 
-            services.AddInfrastructureDependencies(configuration);
+            services
+                .AddInfrastructureDependencies(configuration)
+                .AddApplicationDependencies();
 
             return services;
         }

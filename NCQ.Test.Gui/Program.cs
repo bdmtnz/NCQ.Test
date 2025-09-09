@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Windows.Forms;
 
 namespace NCQ.Test.Gui
 {
@@ -13,13 +12,13 @@ namespace NCQ.Test.Gui
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            System.Windows.Forms.Application.EnableVisualStyles();
+            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
 
             var host = CreateHostBuilder().Build();
             ServiceProvider = host.Services;
 
-            Application.Run(ServiceProvider.GetRequiredService<Main>());
+            System.Windows.Forms.Application.Run(ServiceProvider.GetRequiredService<Main>());
         }
 
         public static IServiceProvider ServiceProvider { get; private set; }
