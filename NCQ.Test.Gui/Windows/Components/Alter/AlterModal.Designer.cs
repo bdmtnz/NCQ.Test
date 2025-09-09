@@ -42,21 +42,15 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.CtrlPriority = new DevExpress.XtraEditors.ComboBoxEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.CtrlCommitmentStart = new DevExpress.XtraEditors.DateEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.ModalTitle = new DevExpress.XtraEditors.LabelControl();
             this.ModalDesciption = new DevExpress.XtraEditors.LabelControl();
             this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.CtrlCommitmentEnd = new DevExpress.XtraEditors.DateEdit();
-            this.CtrlCommitmentStart = new DevExpress.XtraEditors.DateEdit();
-            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.ResumenText = new DevExpress.XtraEditors.LabelControl();
             this.FormError = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).BeginInit();
             this.stackPanel1.SuspendLayout();
@@ -66,21 +60,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.CtrlPriority.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentEnd.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentEnd.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
-            this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FormError)).BeginInit();
             this.SuspendLayout();
             // 
             // WinAccept
             // 
-            this.WinAccept.Location = new System.Drawing.Point(598, 17);
+            this.WinAccept.Location = new System.Drawing.Point(403, 17);
             this.WinAccept.Name = "WinAccept";
             this.WinAccept.Size = new System.Drawing.Size(96, 41);
             this.WinAccept.TabIndex = 1;
@@ -96,14 +84,14 @@
             this.stackPanel1.LookAndFeel.SkinName = "WXI";
             this.stackPanel1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.stackPanel1.Name = "stackPanel1";
-            this.stackPanel1.Size = new System.Drawing.Size(711, 76);
+            this.stackPanel1.Size = new System.Drawing.Size(516, 76);
             this.stackPanel1.TabIndex = 2;
             this.stackPanel1.UseSkinIndents = true;
             // 
             // WinCancel
             // 
             this.WinCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.WinCancel.Location = new System.Drawing.Point(496, 17);
+            this.WinCancel.Location = new System.Drawing.Point(301, 17);
             this.WinCancel.Name = "WinCancel";
             this.WinCancel.Size = new System.Drawing.Size(96, 41);
             this.WinCancel.TabIndex = 2;
@@ -113,7 +101,7 @@
             // 
             this.CtrlDescription.Location = new System.Drawing.Point(13, 59);
             this.CtrlDescription.Name = "CtrlDescription";
-            this.CtrlDescription.Size = new System.Drawing.Size(306, 96);
+            this.CtrlDescription.Size = new System.Drawing.Size(461, 96);
             this.CtrlDescription.TabIndex = 4;
             // 
             // labelControl1
@@ -136,7 +124,7 @@
             // 
             this.CtrlNotes.Location = new System.Drawing.Point(14, 240);
             this.CtrlNotes.Name = "CtrlNotes";
-            this.CtrlNotes.Size = new System.Drawing.Size(305, 72);
+            this.CtrlNotes.Size = new System.Drawing.Size(460, 72);
             this.CtrlNotes.TabIndex = 6;
             // 
             // CtrlState
@@ -175,8 +163,11 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.labelControl10);
             this.groupControl1.Controls.Add(this.labelControl9);
+            this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.labelControl8);
+            this.groupControl1.Controls.Add(this.CtrlCommitmentStart);
             this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.CtrlDescription);
             this.groupControl1.Controls.Add(this.labelControl4);
@@ -190,9 +181,19 @@
             this.groupControl1.LookAndFeel.SkinName = "WXI";
             this.groupControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(332, 330);
+            this.groupControl1.Size = new System.Drawing.Size(486, 330);
             this.groupControl1.TabIndex = 13;
             this.groupControl1.Text = "Datos básicos";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl10.Appearance.Options.UseForeColor = true;
+            this.labelControl10.Location = new System.Drawing.Point(352, 167);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(6, 13);
+            this.labelControl10.TabIndex = 14;
+            this.labelControl10.Text = "*";
             // 
             // labelControl9
             // 
@@ -204,6 +205,14 @@
             this.labelControl9.TabIndex = 15;
             this.labelControl9.Text = "*";
             // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(325, 167);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(25, 13);
+            this.labelControl5.TabIndex = 11;
+            this.labelControl5.Text = "Inicio";
+            // 
             // labelControl8
             // 
             this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Red;
@@ -213,6 +222,18 @@
             this.labelControl8.Size = new System.Drawing.Size(6, 13);
             this.labelControl8.TabIndex = 14;
             this.labelControl8.Text = "*";
+            // 
+            // CtrlCommitmentStart
+            // 
+            this.CtrlCommitmentStart.EditValue = null;
+            this.CtrlCommitmentStart.Location = new System.Drawing.Point(325, 186);
+            this.CtrlCommitmentStart.Name = "CtrlCommitmentStart";
+            this.CtrlCommitmentStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CtrlCommitmentStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CtrlCommitmentStart.Size = new System.Drawing.Size(149, 28);
+            this.CtrlCommitmentStart.TabIndex = 1;
             // 
             // labelControl7
             // 
@@ -253,101 +274,6 @@
             this.svgImageBox1.TabIndex = 16;
             this.svgImageBox1.Text = "svgImageBox1";
             // 
-            // groupControl2
-            // 
-            this.groupControl2.Controls.Add(this.labelControl11);
-            this.groupControl2.Controls.Add(this.labelControl10);
-            this.groupControl2.Controls.Add(this.labelControl6);
-            this.groupControl2.Controls.Add(this.labelControl5);
-            this.groupControl2.Controls.Add(this.CtrlCommitmentEnd);
-            this.groupControl2.Controls.Add(this.CtrlCommitmentStart);
-            this.groupControl2.Location = new System.Drawing.Point(362, 102);
-            this.groupControl2.LookAndFeel.SkinName = "WXI";
-            this.groupControl2.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(334, 94);
-            this.groupControl2.TabIndex = 17;
-            this.groupControl2.Text = "Datos de compromiso";
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl11.Appearance.Options.UseForeColor = true;
-            this.labelControl11.Location = new System.Drawing.Point(193, 32);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(6, 13);
-            this.labelControl11.TabIndex = 15;
-            this.labelControl11.Text = "*";
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl10.Appearance.Options.UseForeColor = true;
-            this.labelControl10.Location = new System.Drawing.Point(41, 32);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(6, 13);
-            this.labelControl10.TabIndex = 14;
-            this.labelControl10.Text = "*";
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Location = new System.Drawing.Point(169, 32);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(22, 13);
-            this.labelControl6.TabIndex = 12;
-            this.labelControl6.Text = "Final";
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(14, 32);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(25, 13);
-            this.labelControl5.TabIndex = 11;
-            this.labelControl5.Text = "Inicio";
-            // 
-            // CtrlCommitmentEnd
-            // 
-            this.CtrlCommitmentEnd.EditValue = null;
-            this.CtrlCommitmentEnd.Location = new System.Drawing.Point(169, 51);
-            this.CtrlCommitmentEnd.Name = "CtrlCommitmentEnd";
-            this.CtrlCommitmentEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CtrlCommitmentEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CtrlCommitmentEnd.Size = new System.Drawing.Size(150, 28);
-            this.CtrlCommitmentEnd.TabIndex = 2;
-            // 
-            // CtrlCommitmentStart
-            // 
-            this.CtrlCommitmentStart.EditValue = null;
-            this.CtrlCommitmentStart.Location = new System.Drawing.Point(14, 51);
-            this.CtrlCommitmentStart.Name = "CtrlCommitmentStart";
-            this.CtrlCommitmentStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CtrlCommitmentStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CtrlCommitmentStart.Size = new System.Drawing.Size(149, 28);
-            this.CtrlCommitmentStart.TabIndex = 1;
-            // 
-            // groupControl3
-            // 
-            this.groupControl3.Controls.Add(this.ResumenText);
-            this.groupControl3.Location = new System.Drawing.Point(362, 214);
-            this.groupControl3.LookAndFeel.SkinName = "WXI";
-            this.groupControl3.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(334, 218);
-            this.groupControl3.TabIndex = 18;
-            this.groupControl3.Text = "Resumen";
-            // 
-            // ResumenText
-            // 
-            this.ResumenText.Location = new System.Drawing.Point(14, 45);
-            this.ResumenText.Name = "ResumenText";
-            this.ResumenText.Size = new System.Drawing.Size(191, 13);
-            this.ResumenText.TabIndex = 0;
-            this.ResumenText.Text = "Aquí se mostrará el resumen de la tarea";
-            // 
             // FormError
             // 
             this.FormError.ContainerControl = this;
@@ -358,18 +284,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.WinCancel;
-            this.ClientSize = new System.Drawing.Size(711, 514);
-            this.Controls.Add(this.groupControl3);
-            this.Controls.Add(this.groupControl2);
+            this.ClientSize = new System.Drawing.Size(516, 514);
             this.Controls.Add(this.svgImageBox1);
             this.Controls.Add(this.ModalDesciption);
             this.Controls.Add(this.ModalTitle);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.stackPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AlterModal";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tarea";
             this.TopMost = true;
@@ -382,17 +306,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
-            this.groupControl2.ResumeLayout(false);
-            this.groupControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentEnd.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentEnd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
-            this.groupControl3.ResumeLayout(false);
-            this.groupControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FormError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -416,18 +332,12 @@
         private DevExpress.XtraEditors.LabelControl ModalTitle;
         private DevExpress.XtraEditors.LabelControl ModalDesciption;
         private DevExpress.XtraEditors.SvgImageBox svgImageBox1;
-        private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.DateEdit CtrlCommitmentStart;
-        private DevExpress.XtraEditors.DateEdit CtrlCommitmentEnd;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.GroupControl groupControl3;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.LabelControl labelControl10;
-        private DevExpress.XtraEditors.LabelControl ResumenText;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider FormError;
     }
 }

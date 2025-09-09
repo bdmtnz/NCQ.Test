@@ -10,16 +10,20 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
             RuleFor(x => x.Description)
                 .NotEmpty()
                 .NotNull()
-                .MinimumLength(5);
+                .WithMessage("La descripción no es válida");
 
             RuleFor(x => x.Status)
-                .NotNull();
+                .NotNull()
+                .WithMessage("El estado no es válido");
 
             RuleFor(x => x.Priority)
-                .NotNull();
+                .NotNull()
+                .WithMessage("La prioridad no es válida");
 
             RuleFor(x => x.Commitment)
-                .NotNull();
+                .NotEmpty()
+                .NotNull()
+                .WithMessage("La fecha de compromiso no es válida");
         }
     }
 }
