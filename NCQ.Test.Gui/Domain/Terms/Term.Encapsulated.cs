@@ -2,6 +2,7 @@
 using NCQ.Test.Domain.Terms.ValueObjects;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NCQ.Test.Domain.Terms
 {
@@ -18,5 +19,15 @@ namespace NCQ.Test.Domain.Terms
 
         [Obsolete("This ctor is only for ORM")]
         protected Term() : base(default) { }
+
+        public Term SetChildren(List<Term> children)
+        {
+            var areChildren = children.All(c => c.ParentId == Id);
+            if (areChildren)
+            {
+                _terms.AddRange(children);
+            }
+            return this;
+        }
     }
 }

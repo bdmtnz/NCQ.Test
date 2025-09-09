@@ -11,9 +11,11 @@ namespace NCQ.Test.Domain.Terms
         public Term Parent { get; private set; }
         public IReadOnlyList<Term> Terms => _terms.AsReadOnly();
 
-        public static Term Create(TermId id, string code, string name = default, TermId parentId = default)
+        public static Term Create(string id, string code, string name = default, string parentId = default)
         {
-            return new Term(id, code, name, parentId);
+            var _id = TermId.Create(id);
+            var _parentId = string.IsNullOrEmpty(parentId) ? default : TermId.Create(parentId);
+            return new Term(_id, code, name, _parentId);
         }
     }
 }

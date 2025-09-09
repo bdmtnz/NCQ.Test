@@ -19,21 +19,29 @@ namespace NCQ.Test.Domain.Tasks
             Notes = notes;
         }
 
+        public static Task Create(string id, string description, string notes)
+        {
+            var _id = TaskId.Create(id);
+            return new Task(_id, description, notes);
+        }
+
         public static Task Create(string description, string notes)
         {
             var id = TaskId.CreateUnique();
             return new Task(id, description, notes);
         }
 
-        public Task SetStatus(TermId statusId, string statusName)
+        public Task SetStatus(string statusId, string statusName)
         {
-            Status = RelationalFk<TermId>.Create(statusId, statusName);
+            var _statusId = TermId.Create(statusId);
+            Status = RelationalFk<TermId>.Create(_statusId, statusName);
             return this;
         }
 
-        public Task SetPriority(TermId priorityId, string priorityName)
+        public Task SetPriority(string priorityId, string priorityName)
         {
-            Status = RelationalFk<TermId>.Create(priorityId, priorityName);
+            var _priorityId = TermId.Create(priorityId);
+            Status = RelationalFk<TermId>.Create(_priorityId, priorityName);
             return this;
         }
 

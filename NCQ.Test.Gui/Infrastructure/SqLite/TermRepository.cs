@@ -1,6 +1,5 @@
 ﻿using NCQ.Test.Domain.Terms;
 using NCQ.Test.Gui.Domain.Common.Contracts.Persistence.Repositories;
-using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Threading.Tasks;
@@ -16,14 +15,80 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
             _connection = connection;
         }
 
-        public Task<List<Term>> Get()
+        public async Task<List<Term>> Get()
         {
-            throw new NotImplementedException();
+            var response = new List<Term>();
+            var queryText = "SELECT Id, Code, Name, ParentId FROM Terms;";
+
+            using (var command = new SQLiteCommand(queryText, _connection))
+            {
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    if (reader.Read())
+                    {
+                        var item = Term.Create(
+                            reader.GetString(0),
+                            reader.GetString(1),
+                            reader.GetString(2),
+                            reader.GetString(3)
+                        );
+                        response.Add(item);
+                    }
+                }
+            }
+            return response;
         }
 
-        public Task<Term> Get(string key)
+        public async Task<Term> Get(string key)
         {
-            throw new NotImplementedException();
+            Term response = default;
+            var queryText = "SELECT Id, Code, Name, ParentId FROM Terms WHERE Code=@key;";
+
+            using (var command = new SQLiteCommand(queryText, _connection))
+            {
+                command.Parameters.AddWithValue("@key", key);
+
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    if (reader.Read())
+                    {
+                        response = Term.Create(
+                            reader.GetString(0),
+                            reader.GetString(1),
+                            reader.GetString(2),
+                            reader.GetString(3)
+                        );
+                    }
+                }
+            }
+            return response;
+        }
+
+        public async Task<List<Term>> GetChildren(Term parent)
+        {
+            var response = new List<Term>();
+            var queryText =
+                @"SELECT Id, Code, Name, ParentId FROM Terms WHERE ParentId=@id;";
+
+            using (var command = new SQLiteCommand(queryText, _connection))
+            {
+                command.Parameters.AddWithValue("@id", parent.Id.Value);
+
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    if (reader.Read())
+                    {
+                        var item = Term.Create(
+                            reader.GetString(0),
+                            reader.GetString(1),
+                            reader.GetString(2),
+                            reader.GetString(3)
+                        );
+                        response.Add(item);
+                    }
+                }
+            }
+            return response;
         }
     }
 }

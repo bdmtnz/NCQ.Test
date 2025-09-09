@@ -47,5 +47,25 @@ namespace NCQ.Test.Gui.Application.Services
 
             return cache.Value;
         }
+
+        public async Task<Term> GetWithChildren(string code)
+        {
+            var cacheKey = $"cache.{nameof(TermService)}.get.children.{code}";
+
+            var cache = _cache.Get<Term>(cacheKey);
+            if (cache.IsError)
+            {
+                var result = await _term.Get(code);
+                if (result != null)
+                {
+                    var children = await _term.GetChildren(result);
+                    result.SetChildren(children);
+                }
+                _cache.Set(cacheKey, result, 60 * 60);
+                return result;
+            }
+
+            return cache.Value;
+        }
     }
 }
