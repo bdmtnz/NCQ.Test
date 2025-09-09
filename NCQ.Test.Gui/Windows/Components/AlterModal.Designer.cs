@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlterModal));
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.WinAccept = new DevExpress.XtraEditors.SimpleButton();
             this.stackPanel1 = new DevExpress.Utils.Layout.StackPanel();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.WinCancel = new DevExpress.XtraEditors.SimpleButton();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -75,18 +75,18 @@
             this.groupControl3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // simpleButton1
+            // WinAccept
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(598, 17);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(96, 41);
-            this.simpleButton1.TabIndex = 1;
-            this.simpleButton1.Text = "Guardar";
+            this.WinAccept.Location = new System.Drawing.Point(598, 17);
+            this.WinAccept.Name = "WinAccept";
+            this.WinAccept.Size = new System.Drawing.Size(96, 41);
+            this.WinAccept.TabIndex = 1;
+            this.WinAccept.Text = "Guardar";
             // 
             // stackPanel1
             // 
-            this.stackPanel1.Controls.Add(this.simpleButton1);
-            this.stackPanel1.Controls.Add(this.simpleButton2);
+            this.stackPanel1.Controls.Add(this.WinAccept);
+            this.stackPanel1.Controls.Add(this.WinCancel);
             this.stackPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.stackPanel1.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.RightToLeft;
             this.stackPanel1.Location = new System.Drawing.Point(0, 438);
@@ -97,13 +97,14 @@
             this.stackPanel1.TabIndex = 2;
             this.stackPanel1.UseSkinIndents = true;
             // 
-            // simpleButton2
+            // WinCancel
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(496, 17);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(96, 41);
-            this.simpleButton2.TabIndex = 2;
-            this.simpleButton2.Text = "Cancelar";
+            this.WinCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.WinCancel.Location = new System.Drawing.Point(496, 17);
+            this.WinCancel.Name = "WinCancel";
+            this.WinCancel.Size = new System.Drawing.Size(96, 41);
+            this.WinCancel.TabIndex = 2;
+            this.WinCancel.Text = "Cancelar";
             // 
             // memoEdit1
             // 
@@ -347,8 +348,10 @@
             // 
             // AlterModal
             // 
+            this.AcceptButton = this.WinAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.WinCancel;
             this.ClientSize = new System.Drawing.Size(711, 514);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl2);
@@ -357,8 +360,13 @@
             this.Controls.Add(this.ModalTitle);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.stackPanel1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AlterModal";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tarea";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).EndInit();
             this.stackPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
@@ -386,9 +394,9 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton WinAccept;
         private DevExpress.Utils.Layout.StackPanel stackPanel1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton WinCancel;
         private DevExpress.XtraEditors.MemoEdit memoEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
