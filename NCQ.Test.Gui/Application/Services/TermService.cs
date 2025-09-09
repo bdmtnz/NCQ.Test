@@ -1,7 +1,8 @@
-﻿using NCQ.Test.Domain.Terms;
+﻿using ErrorOr;
+using NCQ.Test.Domain.Terms;
 using NCQ.Test.Gui.Domain.Common.Contracts.Persistence;
+using NCQ.Test.Gui.Domain.Common.Contracts.Persistence.Repositories;
 using NCQ.Test.Gui.Domain.Common.Contracts.Service;
-using NCQ.Test.Gui.Infrastructure.SqLite;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -10,22 +11,42 @@ namespace NCQ.Test.Gui.Application.Services
     public class TermService : ITermService
     {
         private readonly ICache _cache;
-        private readonly TermRepository _term;
+        private readonly ITermRepository _term;
 
-        public TermService(ICache cache, TermRepository term)
+        public TermService(ICache cache, ITermRepository term)
         {
             _cache = cache;
             _term = term;
         }
 
-        public Task<List<Term>> Get()
+        public async Task<List<Term>> Get()
         {
-            throw new System.NotImplementedException();
+            var cacheKey = $"cache.{nameof(TermService)}.get";
+
+            var cache = _cache.Get<List<Term>>(cacheKey);
+            if (cache.IsError)
+            {
+                var result = await _term.Get();
+                _cache.Set(cacheKey, result, 60 * 60);
+                return result;
+            }
+
+            return cache.Value;
         }
 
-        public Task<Term> Get(string key)
+        public async Task<Term> Get(string key)
         {
-            throw new System.NotImplementedException();
+            var cacheKey = $"cache.{nameof(TermService)}.get.{key}";
+
+            var cache = _cache.Get<Term>(cacheKey);
+            if (cache.IsError)
+            {
+                var result = await _term.Get(key);
+                _cache.Set(cacheKey, result, 60 * 60);
+                return result;
+            }
+
+            return cache.Value;
         }
     }
 }

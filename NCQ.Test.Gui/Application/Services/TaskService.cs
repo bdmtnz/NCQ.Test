@@ -1,45 +1,86 @@
-﻿using NCQ.Test.Gui.Domain.Common.Contracts.Persistence;
+﻿using NCQ.Test.Domain.Tasks;
+using NCQ.Test.Gui.Domain.Common.Contracts.Persistence;
+using NCQ.Test.Gui.Domain.Common.Contracts.Persistence.Repositories;
 using NCQ.Test.Gui.Domain.Common.Contracts.Service;
-using NCQ.Test.Gui.Infrastructure.SqLite;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace NCQ.Test.Gui.Application.Services
 {
     public class TaskService : ITaskService
     {
         private readonly ICache _cache;
-        private readonly TaskRepository _task;
+        private readonly ITaskRepository _task;
 
-        public TaskService(ICache cache, TaskRepository task)
+        public TaskService(ICache cache, ITaskRepository task)
         {
             _cache = cache;
             _task = task;
         }
 
-        public Task<int> Add(Task entity)
+        public async System.Threading.Tasks.Task<int> Add(Task entity)
         {
-            throw new System.NotImplementedException();
+            var result = await _task.Add(entity);
+
+            var cacheKey = $"cache.{nameof(TaskService)}.get";
+            _cache.Remove(cacheKey);
+
+            return result;
         }
 
-        public Task<int> Delete(Task entity)
+        public async System.Threading.Tasks.Task<int> Delete(Task entity)
         {
-            throw new System.NotImplementedException();
+            var result = await _task.Delete(entity);
+
+            var cacheKey = $"cache.{nameof(TaskService)}.get";
+            _cache.Remove(cacheKey);
+
+            var cacheByKey = $"cache.{nameof(TaskService)}.get.{entity.Id}";
+            _cache.Remove(cacheByKey);
+
+            return result;
         }
 
-        public Task<List<Task>> Get()
+        public async System.Threading.Tasks.Task<List<Task>> Get()
         {
-            throw new System.NotImplementedException();
+            var cacheKey = $"cache.{nameof(TaskService)}.get";
+
+            var cache = _cache.Get<List<Task>>(cacheKey);
+            if (cache.IsError)
+            {
+                var result = await _task.Get();
+                _cache.Set(cacheKey, result, 60 * 60);
+                return result;
+            }
+
+            return cache.Value;
         }
 
-        public Task<Task> Get(string key)
+        public async System.Threading.Tasks.Task<Task> Get(string key)
         {
-            throw new System.NotImplementedException();
+            var cacheKey = $"cache.{nameof(TaskService)}.get.{key}";
+
+            var cache = _cache.Get<Task>(cacheKey);
+            if (cache.IsError)
+            {
+                var result = await _task.Get(key);
+                _cache.Set(cacheKey, result, 60 * 60);
+                return result;
+            }
+
+            return cache.Value;
         }
 
-        public Task<int> Update(Task entity)
+        public async System.Threading.Tasks.Task<int> Update(Task entity)
         {
-            throw new System.NotImplementedException();
+            var result = await _task.Update(entity);
+
+            var cacheKey = $"cache.{nameof(TaskService)}.get";
+            _cache.Remove(cacheKey);
+
+            var cacheByKey = $"cache.{nameof(TaskService)}.get.{entity.Id}";
+            _cache.Remove(cacheByKey);
+
+            return result;
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿using NCQ.Test.Gui.Domain.Common.Contracts.Persistence;
-using System.Threading.Tasks;
+﻿using NCQ.Test.Domain.Tasks;
+using NCQ.Test.Gui.Domain.Common.Contracts.Persistence;
 
 namespace NCQ.Test.Gui.Domain.Common.Contracts.Service
 {
