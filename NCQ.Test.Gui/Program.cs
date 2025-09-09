@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NCQ.Test.Gui.Windows.Components;
 using System;
 
 namespace NCQ.Test.Gui
@@ -18,7 +19,8 @@ namespace NCQ.Test.Gui
             var host = CreateHostBuilder().Build();
             ServiceProvider = host.Services;
 
-            System.Windows.Forms.Application.Run(ServiceProvider.GetRequiredService<Main>());
+            //System.Windows.Forms.Application.Run(ServiceProvider.GetRequiredService<Main>());
+            System.Windows.Forms.Application.Run(new AlterModal());
         }
 
         public static IServiceProvider ServiceProvider { get; private set; }
