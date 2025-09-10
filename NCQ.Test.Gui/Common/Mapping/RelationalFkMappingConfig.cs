@@ -9,7 +9,7 @@ namespace NCQ.Test.Gui.Common.Mapping
         public void Register(TypeAdapterConfig config)
         {
             config.NewConfig<Term, ComboItem>()
-                .Map(dest => dest.Id, or => or.Id.Value)
+                .Map(dest => dest.Id, or => or.Id)
                 .Map(dest => dest.Text, or => or.Name);
         }
     }

@@ -1,5 +1,4 @@
-﻿using DevExpress.XtraRichEdit.Import.Html;
-using Mapster;
+﻿using Mapster;
 using MapsterMapper;
 using Microsoft.Extensions.DependencyInjection;
 using NCQ.Test.Gui.Domain.Common;
@@ -8,6 +7,7 @@ using NCQ.Test.Gui.Windows.Components.Alter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NCQ.Test.Gui
@@ -46,6 +46,12 @@ namespace NCQ.Test.Gui
 			PriorityRepository.ValueMember = "Id";
 		}
 
+        private async Task LoadData()
+		{
+			var tasks = await _task.Get();
+			GridTasks.DataSource = tasks;
+		}
+
 		private async void Initialize()
         {
             var stateTerm = await _term.GetWithChildren("STATES");
@@ -70,17 +76,21 @@ namespace NCQ.Test.Gui
 				InitializePriorityRepository(priorities);
 			}
 
-            var tasks = await _task.Get();
-            GridTasks.DataSource = tasks;
+            await LoadData();
 		}
 
-        private void ButtonCreate_Click(object sender, EventArgs e)
+        private async void ButtonCreate_Click(object sender, EventArgs e)
         {
             var modal = new AlterModal(combos);
             var result = modal.ShowDialog();
             if (result == DialogResult.OK)
             {
-
+                var value = modal.GetValue();
+                var rowAffecteds = await _task.Add(value);
+                if (rowAffecteds > 0)
+                {
+                    await LoadData();
+				}
             }
         }
 

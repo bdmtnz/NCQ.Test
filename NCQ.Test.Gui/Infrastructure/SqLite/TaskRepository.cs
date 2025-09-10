@@ -17,11 +17,10 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
         public System.Threading.Tasks.Task<int> Add(Task entity)
         {
             var commandText =
-                @"INSERT INTO Tasks (Id, Description, StatusId, PriorityId, Notes, Commitment) 
-                VALUES (@id, @description, @statusId, @priorityId, @notes, @commitment);";
+                @"INSERT INTO Tasks (Description, StatusId, PriorityId, Notes, Commitment) 
+                VALUES (@description, @statusId, @priorityId, @notes, @commitment);";
             using (var command = new SQLiteCommand(commandText, _connection))
             {
-                command.Parameters.AddWithValue("@id", entity.Id.Value);
                 command.Parameters.AddWithValue("@description", entity.Description);
                 command.Parameters.AddWithValue("@statusId", entity.StatusId);
                 command.Parameters.AddWithValue("@priorityId", entity.PriorityId);
@@ -36,7 +35,7 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
             var commandText = "DELETE FROM Tasks WHERE Id=@id;";
             var command = new SQLiteCommand(commandText, _connection);
 
-            command.Parameters.AddWithValue("@id", entity.Id.Value);
+            command.Parameters.AddWithValue("@id", entity.Id);
 
             return command.ExecuteNonQueryAsync();
         }
@@ -53,7 +52,7 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
                     if (reader.Read())
                     {
                         var item = Task.Create(
-                            reader.GetString(0),
+                            reader.GetInt64(0),
                             reader.GetString(1),
                             reader.GetString(4))
                         .SetStatus(reader.GetString(2))
@@ -81,7 +80,7 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
                     if (reader.Read())
                     {
                         response = Task.Create(
-                            reader.GetString(0),
+                            reader.GetInt64(0),
                             reader.GetString(1),
                             reader.GetString(4))
                         .SetStatus(reader.GetString(2))
@@ -99,7 +98,7 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
 
             using (var command = new SQLiteCommand(commandText, _connection))
             {
-                command.Parameters.AddWithValue("@id", entity.Id.Value);
+                command.Parameters.AddWithValue("@id", entity.Id);
                 command.Parameters.AddWithValue("@description", entity.Description);
                 command.Parameters.AddWithValue("@statusId", entity.StatusId);
                 command.Parameters.AddWithValue("@priorityId", entity.PriorityId);

@@ -12,7 +12,6 @@ namespace NCQ.Test.Gui.Windows.Components.Alter.Model
                 .Map(dest => dest.Description, or => or.Description);
 
             config.NewConfig<AlterModalViewModel, Task>()
-                .Map(dest => dest.Id, or => or.Id)
                 .Map(dest => dest.Description, or => or.Description);
         }
     }

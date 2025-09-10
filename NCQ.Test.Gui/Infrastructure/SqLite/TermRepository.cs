@@ -27,10 +27,10 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
                     while (reader.Read())
                     {
                         var item = Term.Create(
-                            reader.GetString(0),
+                            reader.GetInt64(0),
                             reader.GetString(1),
                             reader.GetString(2),
-                            reader.IsDBNull(3) ? null : reader.GetString(3)
+                            reader.IsDBNull(3) ? default : reader.GetInt64(3)
                         );
                         response.Add(item);
                     }
@@ -53,10 +53,10 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
                     if (reader.Read())
                     {
                         response = Term.Create(
-                            reader.GetString(0),
+                            reader.GetInt64(0),
                             reader.GetString(1),
                             reader.GetString(2),
-                            reader.IsDBNull(3) ? null : reader.GetString(3)
+                            reader.IsDBNull(3) ? default : reader.GetInt64(3)
                         );
                     }
                 }
@@ -72,19 +72,26 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
 
             using (var command = new SQLiteCommand(queryText, _connection))
             {
-                command.Parameters.AddWithValue("@id", parent.Id.Value);
+                command.Parameters.AddWithValue("@id", parent.Id);
 
                 using (var reader = await command.ExecuteReaderAsync())
                 {
                     while (reader.Read())
                     {
-                        var item = Term.Create(
-                            reader.GetString(0),
-                            reader.GetString(1),
-                            reader.GetString(2),
-                            reader.IsDBNull(3) ? null : reader.GetString(3)
-                        );
-                        response.Add(item);
+                        try
+                        {
+                            var item = Term.Create(
+                                reader.GetInt64(0),
+                                reader.GetString(1),
+                                reader.GetString(2),
+                                reader.IsDBNull(3) ? default : reader.GetInt64(3)
+                            );
+                            response.Add(item);
+                        }
+                        catch (System.Exception e)
+                        {
+
+                        }
                     }
                 }
             }

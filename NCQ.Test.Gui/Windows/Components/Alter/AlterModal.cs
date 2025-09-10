@@ -46,10 +46,9 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
         {
             if (value == null)
             {
-                FormMvvm.SetViewModel(typeof(AlterModalViewModel), Task.Create(string.Empty, string.Empty));
+                FormMvvm.SetViewModel(typeof(AlterModalViewModel), AlterModalViewModel.CreateDefault());
             }
-
-            FormMvvm.SetViewModel(typeof(AlterModalViewModel), value);
+            FormMvvm.SetViewModel(typeof(AlterModalViewModel), value.Adapt<AlterModalViewModel>());
         }        
 
         private void Initialize(IDictionary<string, List<ComboItem>> combos)

@@ -322,10 +322,8 @@
     <Compile Include="Domain\Tasks\Task.cs" />
     <Compile Include="Domain\Tasks\Task.Encapsulated.cs" />
     <Compile Include="Domain\Common\DateRange.cs" />
-    <Compile Include="Domain\Tasks\ValueObjects\TaskId.cs" />
     <Compile Include="Domain\Terms\Term.cs" />
     <Compile Include="Domain\Terms\Term.Encapsulated.cs" />
-    <Compile Include="Domain\Terms\ValueObjects\TermId.cs" />
     <Compile Include="Infrastructure\Common\MemoryCache.cs" />
     <Compile Include="Infrastructure\Dependencies.cs" />
     <Compile Include="Infrastructure\SqLite\TaskRepository.cs" />

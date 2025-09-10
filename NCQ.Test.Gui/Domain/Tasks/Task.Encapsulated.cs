@@ -1,32 +1,23 @@
 ﻿using NCQ.Test.Domain.Common.Base;
-using NCQ.Test.Domain.Tasks.ValueObjects;
 using System;
 
 namespace NCQ.Test.Domain.Tasks
 {
-    public sealed partial class Task : AggregateRoot<TaskId>
+    public sealed partial class Task
     {
-        [Obsolete("This ctor is only for ORM")]
-        protected Task() : base(default) { }
+        public Task() { }
         private Task(
-            TaskId id, 
+            long id, 
             string description,
-            string notes) : base(id)
+            string notes)
         {
             Id = id;
             Description = description;
             Notes = notes;
         }
 
-        public static Task Create(string id, string description, string notes)
+        public static Task Create(long id, string description, string notes)
         {
-            var _id = TaskId.Create(id);
-            return new Task(_id, description, notes);
-        }
-
-        public static Task Create(string description, string notes)
-        {
-            var id = TaskId.CreateUnique();
             return new Task(id, description, notes);
         }
 
