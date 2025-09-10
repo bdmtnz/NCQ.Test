@@ -43,7 +43,7 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
         public async System.Threading.Tasks.Task<List<Task>> Get()
         {
             var response = new List<Task>();
-            var queryText = "SELECT Id, Description, StatusId, PriorityId, Notes, Commitment FROM Tasks;";
+            var queryText = "SELECT Id, Description, StatusId, PriorityId, Notes, Commitment FROM Tasks ORDER BY Commitment ASC;";
 
             using (var command = new SQLiteCommand(queryText, _connection))
             {

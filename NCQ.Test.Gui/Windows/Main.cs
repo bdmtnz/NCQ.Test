@@ -19,6 +19,7 @@ namespace NCQ.Test.Gui
         private readonly ITaskService _task;
 
         private IDictionary<string, List<ComboItem>> combos = new Dictionary<string, List<ComboItem>>();
+        private Test.Domain.Tasks.Task focused = default;
 
         public Main(IServiceProvider provider)
         {
@@ -79,19 +80,24 @@ namespace NCQ.Test.Gui
             await LoadData();
 		}
 
+        private async Task AlterTask(Test.Domain.Tasks.Task task)
+        {
+			var rowAffecteds = await _task.Add(task);
+			if (rowAffecteds > 0)
+			{
+				await LoadData();
+			}
+		}
+
         private async void ButtonCreate_Click(object sender, EventArgs e)
         {
             var modal = new AlterModal(combos);
             var result = modal.ShowDialog();
             if (result == DialogResult.OK)
-            {
-                var value = modal.GetValue();
-                var rowAffecteds = await _task.Add(value);
-                if (rowAffecteds > 0)
-                {
-                    await LoadData();
-				}
-            }
+			{
+				var value = modal.GetValue();
+                await AlterTask(value);
+			}
         }
 
         private void HTProfile_Click(object sender, EventArgs e)
@@ -103,5 +109,53 @@ namespace NCQ.Test.Gui
 			}
 			catch { }
 		}
+
+        private void GridTasks_MouseDown(object sender, MouseEventArgs e)
+        {
+			if (e.Button == MouseButtons.Right)
+			{
+				var view = GidViewTasks;
+				if (view == null) return;
+
+				DevExpress.XtraGrid.Views.Grid.ViewInfo.GridHitInfo hitInfo = view.CalcHitInfo(e.Location);
+
+				if (hitInfo.InRow)
+				{
+					view.FocusedRowHandle = hitInfo.RowHandle;
+
+					object rowData = view.GetRow(hitInfo.RowHandle);
+                    focused = rowData as Test.Domain.Tasks.Task;
+
+					ContextMenuRow.Show(Cursor.Position);
+				}
+			}
+		}
+
+        private async void ContextMenuEditBtn_Click(object sender, EventArgs e)
+        {
+			var modal = new AlterModal(combos, focused);
+			var result = modal.ShowDialog();
+			if (result == DialogResult.OK)
+			{
+				var value = modal.GetValue();
+				await AlterTask(value);
+			}
+		}
+
+        private async void ContextMenuRemoveBtn_Click(object sender, EventArgs e)
+        {
+			var result = MessageBox.Show(
+                "¿Está seguro de que desea eliminar este registro?",
+                "Confirmación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                await _task.Delete(focused);
+                await LoadData();
+            }
+        }
     }
 }

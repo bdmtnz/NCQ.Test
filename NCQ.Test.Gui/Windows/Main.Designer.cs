@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.ButtonCreate = new DevExpress.XtraEditors.SimpleButton();
             this.GridTasks = new DevExpress.XtraGrid.GridControl();
@@ -46,6 +47,9 @@
             this.ModalTitle = new DevExpress.XtraEditors.LabelControl();
             this.HTProfile = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.ContextMenuRow = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ContextMenuEditBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.ContextMenuRemoveBtn = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.GridTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GidViewTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriorityRepository)).BeginInit();
@@ -53,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.StatusRepository)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
+            this.ContextMenuRow.SuspendLayout();
             this.SuspendLayout();
             // 
             // ButtonCreate
@@ -78,6 +83,7 @@
             this.GridTasks.TabIndex = 1;
             this.GridTasks.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GidViewTasks});
+            this.GridTasks.MouseDown += new System.Windows.Forms.MouseEventHandler(this.GridTasks_MouseDown);
             // 
             // GidViewTasks
             // 
@@ -208,6 +214,28 @@
             this.labelControl1.TabIndex = 21;
             this.labelControl1.Text = "NCQ - 2025";
             // 
+            // ContextMenuRow
+            // 
+            this.ContextMenuRow.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ContextMenuEditBtn,
+            this.ContextMenuRemoveBtn});
+            this.ContextMenuRow.Name = "ContextMenuRow";
+            this.ContextMenuRow.Size = new System.Drawing.Size(181, 70);
+            // 
+            // ContextMenuEditBtn
+            // 
+            this.ContextMenuEditBtn.Name = "ContextMenuEditBtn";
+            this.ContextMenuEditBtn.Size = new System.Drawing.Size(180, 22);
+            this.ContextMenuEditBtn.Text = "Editar";
+            this.ContextMenuEditBtn.Click += new System.EventHandler(this.ContextMenuEditBtn_Click);
+            // 
+            // ContextMenuRemoveBtn
+            // 
+            this.ContextMenuRemoveBtn.Name = "ContextMenuRemoveBtn";
+            this.ContextMenuRemoveBtn.Size = new System.Drawing.Size(180, 22);
+            this.ContextMenuRemoveBtn.Text = "Eliminar";
+            this.ContextMenuRemoveBtn.Click += new System.EventHandler(this.ContextMenuRemoveBtn_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,6 +260,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.StatusRepository)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
+            this.ContextMenuRow.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,6 +285,9 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit StatusRepository;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
+        private System.Windows.Forms.ContextMenuStrip ContextMenuRow;
+        private System.Windows.Forms.ToolStripMenuItem ContextMenuEditBtn;
+        private System.Windows.Forms.ToolStripMenuItem ContextMenuRemoveBtn;
     }
 }
 
