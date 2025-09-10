@@ -31,15 +31,28 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.ButtonCreate = new DevExpress.XtraEditors.SimpleButton();
             this.GridTasks = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.GidViewTasks = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.ColumnId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColumnDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColumnPriority = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColumnCommitment = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColumnStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
             this.ModalDesciption = new DevExpress.XtraEditors.LabelControl();
             this.ModalTitle = new DevExpress.XtraEditors.LabelControl();
             this.HTProfile = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.StatusRepository = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.PriorityRepository = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.GridTasks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GidViewTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StatusRepository)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PriorityRepository)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonCreate
@@ -56,17 +69,63 @@
             // GridTasks
             // 
             this.GridTasks.Location = new System.Drawing.Point(12, 95);
-            this.GridTasks.MainView = this.gridView1;
+            this.GridTasks.MainView = this.GidViewTasks;
             this.GridTasks.Name = "GridTasks";
+            this.GridTasks.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.StatusRepository,
+            this.PriorityRepository});
             this.GridTasks.Size = new System.Drawing.Size(897, 424);
             this.GridTasks.TabIndex = 1;
             this.GridTasks.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.GidViewTasks});
             // 
-            // gridView1
+            // GidViewTasks
             // 
-            this.gridView1.GridControl = this.GridTasks;
-            this.gridView1.Name = "gridView1";
+            this.GidViewTasks.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.ColumnId,
+            this.ColumnDescription,
+            this.ColumnPriority,
+            this.ColumnCommitment,
+            this.ColumnStatus});
+            this.GidViewTasks.GridControl = this.GridTasks;
+            this.GidViewTasks.Name = "GidViewTasks";
+            // 
+            // ColumnId
+            // 
+            this.ColumnId.Caption = "Id";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.Visible = true;
+            this.ColumnId.VisibleIndex = 0;
+            // 
+            // ColumnDescription
+            // 
+            this.ColumnDescription.Caption = "Descripción";
+            this.ColumnDescription.Name = "ColumnDescription";
+            this.ColumnDescription.Visible = true;
+            this.ColumnDescription.VisibleIndex = 1;
+            // 
+            // ColumnPriority
+            // 
+            this.ColumnPriority.Caption = "Prioridad";
+            this.ColumnPriority.ColumnEdit = this.PriorityRepository;
+            this.ColumnPriority.Name = "ColumnPriority";
+            this.ColumnPriority.Visible = true;
+            this.ColumnPriority.VisibleIndex = 2;
+            // 
+            // ColumnCommitment
+            // 
+            this.ColumnCommitment.Caption = "Compromiso";
+            this.ColumnCommitment.Name = "ColumnCommitment";
+            this.ColumnCommitment.Visible = true;
+            this.ColumnCommitment.VisibleIndex = 3;
+            // 
+            // ColumnStatus
+            // 
+            this.ColumnStatus.Caption = "Estado";
+            this.ColumnStatus.ColumnEdit = this.StatusRepository;
+            this.ColumnStatus.Name = "ColumnStatus";
+            this.ColumnStatus.Visible = true;
+            this.ColumnStatus.VisibleIndex = 4;
             // 
             // svgImageBox1
             // 
@@ -114,6 +173,36 @@
             this.labelControl1.TabIndex = 21;
             this.labelControl1.Text = "NCQ - 2025";
             // 
+            // StatusRepository
+            // 
+            this.StatusRepository.AutoHeight = false;
+            this.StatusRepository.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.StatusRepository.Name = "StatusRepository";
+            this.StatusRepository.PopupView = this.repositoryItemGridLookUpEdit1View;
+            // 
+            // repositoryItemGridLookUpEdit1View
+            // 
+            this.repositoryItemGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
+            this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // PriorityRepository
+            // 
+            this.PriorityRepository.AutoHeight = false;
+            this.PriorityRepository.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.PriorityRepository.Name = "PriorityRepository";
+            this.PriorityRepository.PopupView = this.gridView1;
+            // 
+            // gridView1
+            // 
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -127,12 +216,17 @@
             this.Controls.Add(this.GridTasks);
             this.Controls.Add(this.ButtonCreate);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tareas";
             ((System.ComponentModel.ISupportInitialize)(this.GridTasks)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GidViewTasks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StatusRepository)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PriorityRepository)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,12 +236,21 @@
 
         private DevExpress.XtraEditors.SimpleButton ButtonCreate;
         private DevExpress.XtraGrid.GridControl GridTasks;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView GidViewTasks;
         private DevExpress.XtraEditors.SvgImageBox svgImageBox1;
         private DevExpress.XtraEditors.LabelControl ModalDesciption;
         private DevExpress.XtraEditors.LabelControl ModalTitle;
         private DevExpress.XtraEditors.HyperlinkLabelControl HTProfile;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraGrid.Columns.GridColumn ColumnId;
+        private DevExpress.XtraGrid.Columns.GridColumn ColumnDescription;
+        private DevExpress.XtraGrid.Columns.GridColumn ColumnPriority;
+        private DevExpress.XtraGrid.Columns.GridColumn ColumnCommitment;
+        private DevExpress.XtraGrid.Columns.GridColumn ColumnStatus;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit PriorityRepository;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit StatusRepository;
+        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
     }
 }
 

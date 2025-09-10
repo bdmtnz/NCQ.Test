@@ -36,6 +36,10 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
 
             FormMvvm.SetBinding(ModalTitle, c => c.Text, "Title");
             FormMvvm.SetBinding(CtrlDescription, c => c.Text, "Description");
+            FormMvvm.SetBinding(CtrlPriorityId, c => c.EditValue, "PriorityId");
+            FormMvvm.SetBinding(CtrlStatusId, c => c.EditValue, "StatusId");
+            FormMvvm.SetBinding(CtrlCommitment, c => c.EditValue, "Commitment");
+            FormMvvm.SetBinding(CtrlNotes, c => c.Text, "Notes");
         }
 
         private void Map(Task value)
@@ -52,10 +56,10 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
         {
             var stateDefault = combos["STATES"]
                 .FirstOrDefault();
-            CtrlStateId.Properties.DataSource = combos["STATES"];
-            CtrlStateId.Properties.DisplayMember = "Text";
-            CtrlStateId.Properties.ValueMember = "Id";
-            CtrlStateId.EditValue = stateDefault.Id;
+            CtrlStatusId.Properties.DataSource = combos["STATES"];
+            CtrlStatusId.Properties.DisplayMember = "Text";
+            CtrlStatusId.Properties.ValueMember = "Id";
+            CtrlStatusId.EditValue = stateDefault.Id;
 
             CtrlPriorityId.Properties.DataSource = combos["PRIORITIES"];
             CtrlPriorityId.Properties.DisplayMember = "Text";
@@ -78,6 +82,7 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
             var result = IsValid();
             if (result.IsValid)
             {
+                DialogResult = DialogResult.OK;
                 Close();
                 return;
             }

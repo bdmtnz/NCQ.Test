@@ -1,4 +1,5 @@
-﻿using Mapster;
+﻿using DevExpress.XtraRichEdit.Import.Html;
+using Mapster;
 using MapsterMapper;
 using Microsoft.Extensions.DependencyInjection;
 using NCQ.Test.Gui.Domain.Common;
@@ -31,7 +32,21 @@ namespace NCQ.Test.Gui
 			Initialize();
         }
 
-        private async void Initialize()
+        private void InitializeStatusRepository(List<ComboItem> items)
+		{
+			StatusRepository.DataSource = items;
+            StatusRepository.DisplayMember = "Text";
+            StatusRepository.ValueMember = "Id";
+		}
+
+		private void InitializePriorityRepository(List<ComboItem> items)
+		{
+			PriorityRepository.DataSource = items;
+			PriorityRepository.DisplayMember = "Text";
+			PriorityRepository.ValueMember = "Id";
+		}
+
+		private async void Initialize()
         {
             var stateTerm = await _term.GetWithChildren("STATES");
             if (stateTerm != null)
@@ -40,6 +55,8 @@ namespace NCQ.Test.Gui
                     .ToList()
                     .ConvertAll(_mapper.Map<ComboItem>);
                 combos.Add("STATES", states);
+
+				InitializeStatusRepository(states);
             }
 
             var priorityTerm = await _term.GetWithChildren("PRIORITIES");
@@ -49,13 +66,22 @@ namespace NCQ.Test.Gui
                     .ToList()
                     .ConvertAll(_mapper.Map<ComboItem>);
                 combos.Add("PRIORITIES", priorities);
-            }
-        }
+
+				InitializePriorityRepository(priorities);
+			}
+
+            var tasks = await _task.Get();
+            GridTasks.DataSource = tasks;
+		}
 
         private void ButtonCreate_Click(object sender, EventArgs e)
         {
             var modal = new AlterModal(combos);
             var result = modal.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+
+            }
         }
 
         private void HTProfile_Click(object sender, EventArgs e)
