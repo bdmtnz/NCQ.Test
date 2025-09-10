@@ -17,16 +17,14 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
         public System.Threading.Tasks.Task<int> Add(Task entity)
         {
             var commandText =
-                @"INSERT INTO Tasks (Id, Description, StatusId, StatusText, PriorityId, PriorityText, Notes, Commitment) 
-                VALUES (@id, @description, @statusId, @statusText, @priorityId, @priorityText, @notes, @commitment);";
+                @"INSERT INTO Tasks (Id, Description, StatusId, PriorityId, Notes, Commitment) 
+                VALUES (@id, @description, @statusId, @priorityId, @notes, @commitment);";
             using (var command = new SQLiteCommand(commandText, _connection))
             {
                 command.Parameters.AddWithValue("@id", entity.Id.Value);
                 command.Parameters.AddWithValue("@description", entity.Description);
-                command.Parameters.AddWithValue("@statusId", entity.Status.Id);
-                command.Parameters.AddWithValue("@statusText", entity.Status.Text);
-                command.Parameters.AddWithValue("@priorityId", entity.Priority.Id);
-                command.Parameters.AddWithValue("@priorityText", entity.Priority.Text);
+                command.Parameters.AddWithValue("@statusId", entity.StatusId);
+                command.Parameters.AddWithValue("@priorityId", entity.PriorityId);
                 command.Parameters.AddWithValue("@notes", entity.Notes);
                 command.Parameters.AddWithValue("@commitment", entity.Commitment);
                 return command.ExecuteNonQueryAsync();
@@ -46,7 +44,7 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
         public async System.Threading.Tasks.Task<List<Task>> Get()
         {
             var response = new List<Task>();
-            var queryText = "SELECT Id, Description, StatusId, StatusText, PriorityId, PriorityText, Notes, Commitment FROM Tasks;";
+            var queryText = "SELECT Id, Description, StatusId, PriorityId, Notes, Commitment FROM Tasks;";
 
             using (var command = new SQLiteCommand(queryText, _connection))
             {
@@ -57,10 +55,10 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
                         var item = Task.Create(
                             reader.GetString(0),
                             reader.GetString(1),
-                            reader.GetString(6))
-                        .SetStatus(reader.GetString(2), reader.GetString(3))
-                        .SetPriority(reader.GetString(4), reader.GetString(5))
-                        .SetCommitment(reader.GetDateTime(7));
+                            reader.GetString(4))
+                        .SetStatus(reader.GetString(2))
+                        .SetPriority(reader.GetString(3))
+                        .SetCommitment(reader.GetDateTime(5));
 
                         response.Add(item);
                     }
@@ -73,7 +71,7 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
         {
             Task response = default;
             var queryText =
-                @"SELECT Id, Description, StatusId, StatusText, PriorityId, PriorityText, Notes, Commitment FROM Tasks WHERE Id=@id;";
+                @"SELECT Id, Description, StatusId, PriorityId, Notes, Commitment FROM Tasks WHERE Id=@id;";
             using (var command = new SQLiteCommand(queryText, _connection))
             {
                 command.Parameters.AddWithValue("@id", key);
@@ -85,10 +83,10 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
                         response = Task.Create(
                             reader.GetString(0),
                             reader.GetString(1),
-                            reader.GetString(6))
-                        .SetStatus(reader.GetString(2), reader.GetString(3))
-                        .SetPriority(reader.GetString(4), reader.GetString(5))
-                        .SetCommitment(reader.GetDateTime(7));
+                            reader.GetString(4))
+                        .SetStatus(reader.GetString(2))
+                        .SetPriority(reader.GetString(3))
+                        .SetCommitment(reader.GetDateTime(5));
                     }
                 }
             }
@@ -97,16 +95,14 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
 
         public System.Threading.Tasks.Task<int> Update(Task entity)
         {
-            var commandText = "UPDATE Tasks SET Description=@description, StatusId=@statusId, StatusText=@statusText, PriorityId=@priorityId, PriorityText=@priorityText, Notes=@notes, Commitment=@commitment WHERE Id=@id;";
+            var commandText = "UPDATE Tasks SET Description=@description, StatusId=@statusId, PriorityId=@priorityId, Notes=@notes, Commitment=@commitment WHERE Id=@id;";
 
             using (var command = new SQLiteCommand(commandText, _connection))
             {
                 command.Parameters.AddWithValue("@id", entity.Id.Value);
                 command.Parameters.AddWithValue("@description", entity.Description);
-                command.Parameters.AddWithValue("@statusId", entity.Status.Id);
-                command.Parameters.AddWithValue("@statusText", entity.Status.Text);
-                command.Parameters.AddWithValue("@priorityId", entity.Priority.Id);
-                command.Parameters.AddWithValue("@priorityText", entity.Priority.Text);
+                command.Parameters.AddWithValue("@statusId", entity.StatusId);
+                command.Parameters.AddWithValue("@priorityId", entity.PriorityId);
                 command.Parameters.AddWithValue("@notes", entity.Notes);
                 command.Parameters.AddWithValue("@commitment", entity.Commitment);
                 return command.ExecuteNonQueryAsync();

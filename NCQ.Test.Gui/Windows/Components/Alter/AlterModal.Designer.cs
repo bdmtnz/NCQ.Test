@@ -35,7 +35,6 @@
             this.WinCancel = new DevExpress.XtraEditors.SimpleButton();
             this.CtrlDescription = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.CtrlNotes = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -55,6 +54,7 @@
             this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
             this.FormError = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.FormMvvm = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).BeginInit();
             this.stackPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CtrlDescription.Properties)).BeginInit();
@@ -70,6 +70,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FormError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FormMvvm)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // WinAccept
@@ -87,7 +89,7 @@
             this.stackPanel1.Controls.Add(this.WinCancel);
             this.stackPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.stackPanel1.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.RightToLeft;
-            this.stackPanel1.Location = new System.Drawing.Point(0, 439);
+            this.stackPanel1.Location = new System.Drawing.Point(0, 484);
             this.stackPanel1.LookAndFeel.SkinName = "WXI";
             this.stackPanel1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.stackPanel1.Name = "stackPanel1";
@@ -119,19 +121,11 @@
             this.labelControl1.TabIndex = 5;
             this.labelControl1.Text = "Descripción";
             // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(15, 221);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(28, 13);
-            this.labelControl2.TabIndex = 7;
-            this.labelControl2.Text = "Notas";
-            // 
             // CtrlNotes
             // 
-            this.CtrlNotes.Location = new System.Drawing.Point(14, 240);
+            this.CtrlNotes.Location = new System.Drawing.Point(13, 41);
             this.CtrlNotes.Name = "CtrlNotes";
-            this.CtrlNotes.Size = new System.Drawing.Size(460, 72);
+            this.CtrlNotes.Size = new System.Drawing.Size(461, 72);
             this.CtrlNotes.TabIndex = 6;
             // 
             // labelControl3
@@ -163,14 +157,12 @@
             this.groupControl1.Controls.Add(this.CtrlDescription);
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.labelControl1);
-            this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.labelControl3);
-            this.groupControl1.Controls.Add(this.CtrlNotes);
             this.groupControl1.Location = new System.Drawing.Point(15, 103);
             this.groupControl1.LookAndFeel.SkinName = "WXI";
             this.groupControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(486, 330);
+            this.groupControl1.Size = new System.Drawing.Size(486, 227);
             this.groupControl1.TabIndex = 13;
             this.groupControl1.Text = "Datos básicos";
             // 
@@ -307,13 +299,25 @@
             // 
             this.FormMvvm.ContainerControl = this;
             // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.CtrlNotes);
+            this.groupControl2.Location = new System.Drawing.Point(15, 341);
+            this.groupControl2.LookAndFeel.SkinName = "WXI";
+            this.groupControl2.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(486, 127);
+            this.groupControl2.TabIndex = 17;
+            this.groupControl2.Text = "Notas";
+            // 
             // AlterModal
             // 
             this.AcceptButton = this.WinAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.WinCancel;
-            this.ClientSize = new System.Drawing.Size(516, 500);
+            this.ClientSize = new System.Drawing.Size(516, 545);
+            this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.svgImageBox1);
             this.Controls.Add(this.ModalDesciption);
             this.Controls.Add(this.ModalTitle);
@@ -341,6 +345,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FormError)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FormMvvm)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,7 +359,6 @@
         private DevExpress.XtraEditors.SimpleButton WinCancel;
         private DevExpress.XtraEditors.MemoEdit CtrlDescription;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.MemoEdit CtrlNotes;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
@@ -373,5 +378,6 @@
         private DevExpress.XtraEditors.GridLookUpEdit CtrlPriority;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.DateEdit CtrlCommitment;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
     }
 }

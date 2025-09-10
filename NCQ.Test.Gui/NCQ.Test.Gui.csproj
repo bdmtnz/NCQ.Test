@@ -306,6 +306,7 @@
     <Compile Include="Domain\Common\Base\Entity.cs" />
     <Compile Include="Domain\Common\Base\Entity.Encapsulated.cs" />
     <Compile Include="Domain\Common\Base\ValueObject.cs" />
+    <Compile Include="Domain\Common\ComboItem.cs" />
     <Compile Include="Domain\Common\Contracts\Base\IAggregateRoot.cs" />
     <Compile Include="Domain\Common\Contracts\Base\IAuditableEntity.cs" />
     <Compile Include="Domain\Common\Contracts\Base\IEntity.cs" />
@@ -318,7 +319,6 @@
     <Compile Include="Domain\Common\Contracts\Repositories\ITermRepository.cs" />
     <Compile Include="Domain\Common\Contracts\Service\ITaskService.cs" />
     <Compile Include="Domain\Common\Contracts\Service\ITermService.cs" />
-    <Compile Include="Domain\Common\RelationalFk.cs" />
     <Compile Include="Domain\Tasks\Task.cs" />
     <Compile Include="Domain\Tasks\Task.Encapsulated.cs" />
     <Compile Include="Domain\Common\DateRange.cs" />

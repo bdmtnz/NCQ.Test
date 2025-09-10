@@ -1,6 +1,5 @@
 ﻿using NCQ.Test.Domain.Common.Base;
 using NCQ.Test.Domain.Tasks.ValueObjects;
-using NCQ.Test.Domain.Terms.ValueObjects;
 using System;
 
 namespace NCQ.Test.Domain.Tasks
@@ -31,15 +30,15 @@ namespace NCQ.Test.Domain.Tasks
             return new Task(id, description, notes);
         }
 
-        public Task SetStatus(string statusId, string statusName)
+        public Task SetStatus(string statusId)
         {
-            Status = RelationalFk.Create(statusId, statusName);
+            StatusId = statusId;
             return this;
         }
 
-        public Task SetPriority(string priorityId, string priorityName)
+        public Task SetPriority(string priorityId)
         {
-            Status = RelationalFk.Create(priorityId, priorityName);
+            StatusId = priorityId;
             return this;
         }
 

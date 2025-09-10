@@ -1,8 +1,7 @@
-﻿using DevExpress.XtraGrid.Views.Card;
-using FluentValidation.Results;
+﻿using FluentValidation.Results;
 using Mapster;
 using NCQ.Test.Domain.Tasks;
-using NCQ.Test.Domain.Tasks.ValueObjects;
+using NCQ.Test.Gui.Domain.Common;
 using NCQ.Test.Gui.Domain.Common.Contracts.Gui;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +13,14 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
     {
         public string[] RequiredCombos = new string[] { "STATUS", "PRIORITIES" };
 
-        public AlterModal(IDictionary<string, List<RelationalFk>> combos)
+        public AlterModal(IDictionary<string, List<ComboItem>> combos)
         {
             InitializeComponent();
             InitializeBinding();
             Initialize(combos);
         }
 
-        public AlterModal(IDictionary<string, List<RelationalFk>> combos, Task task)
+        public AlterModal(IDictionary<string, List<ComboItem>> combos, Task task)
         {
             InitializeComponent();
             InitializeBinding();
@@ -47,7 +46,7 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
             FormMvvm.SetViewModel(typeof(AlterModalViewModel), value);
         }        
 
-        private void Initialize(IDictionary<string, List<RelationalFk>> combos)
+        private void Initialize(IDictionary<string, List<ComboItem>> combos)
         {
             var stateDefault = combos["STATES"]
                 .FirstOrDefault();

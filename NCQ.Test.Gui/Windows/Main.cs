@@ -1,13 +1,12 @@
 ﻿using Mapster;
 using MapsterMapper;
 using Microsoft.Extensions.DependencyInjection;
-using NCQ.Test.Domain.Tasks.ValueObjects;
+using NCQ.Test.Gui.Domain.Common;
 using NCQ.Test.Gui.Domain.Common.Contracts.Service;
 using NCQ.Test.Gui.Windows.Components.Alter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NCQ.Test.Gui
@@ -18,7 +17,7 @@ namespace NCQ.Test.Gui
         private readonly ITermService _term;
         private readonly ITaskService _task;
 
-        private IDictionary<string, List<RelationalFk>> combos = new Dictionary<string, List<RelationalFk>>();
+        private IDictionary<string, List<ComboItem>> combos = new Dictionary<string, List<ComboItem>>();
 
         public Main(IServiceProvider provider)
         {
@@ -37,7 +36,7 @@ namespace NCQ.Test.Gui
             {
                 var states = stateTerm.Terms
                     .ToList()
-                    .ConvertAll(_mapper.Map<RelationalFk>);
+                    .ConvertAll(_mapper.Map<ComboItem>);
                 combos.Add("STATES", states);
             }
 
@@ -46,7 +45,7 @@ namespace NCQ.Test.Gui
             {
                 var priorities = priorityTerm.Terms
                     .ToList()
-                    .ConvertAll(_mapper.Map<RelationalFk>);
+                    .ConvertAll(_mapper.Map<ComboItem>);
                 combos.Add("PRIORITIES", priorities);
             }
         }
