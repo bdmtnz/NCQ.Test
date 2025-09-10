@@ -23,9 +23,9 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
             {
                 command.Parameters.AddWithValue("@id", entity.Id.Value);
                 command.Parameters.AddWithValue("@description", entity.Description);
-                command.Parameters.AddWithValue("@statusId", entity.Status.Id.Value);
+                command.Parameters.AddWithValue("@statusId", entity.Status.Id);
                 command.Parameters.AddWithValue("@statusText", entity.Status.Text);
-                command.Parameters.AddWithValue("@priorityId", entity.Priority.Id.Value);
+                command.Parameters.AddWithValue("@priorityId", entity.Priority.Id);
                 command.Parameters.AddWithValue("@priorityText", entity.Priority.Text);
                 command.Parameters.AddWithValue("@notes", entity.Notes);
                 command.Parameters.AddWithValue("@commitment", entity.Commitment);
@@ -103,9 +103,9 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
             {
                 command.Parameters.AddWithValue("@id", entity.Id.Value);
                 command.Parameters.AddWithValue("@description", entity.Description);
-                command.Parameters.AddWithValue("@statusId", entity.Status.Id.Value);
+                command.Parameters.AddWithValue("@statusId", entity.Status.Id);
                 command.Parameters.AddWithValue("@statusText", entity.Status.Text);
-                command.Parameters.AddWithValue("@priorityId", entity.Priority.Id.Value);
+                command.Parameters.AddWithValue("@priorityId", entity.Priority.Id);
                 command.Parameters.AddWithValue("@priorityText", entity.Priority.Text);
                 command.Parameters.AddWithValue("@notes", entity.Notes);
                 command.Parameters.AddWithValue("@commitment", entity.Commitment);

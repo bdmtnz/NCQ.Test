@@ -8,6 +8,8 @@ namespace NCQ.Test.Gui.Application
     {
         public static IServiceCollection AddApplicationDependencies(this IServiceCollection services)
         {
+            services.AddMemoryCache();
+
             services.AddTransient<ITermService, TermService>();
             services.AddTransient<ITaskService, TaskService>();
 

@@ -33,15 +33,13 @@ namespace NCQ.Test.Domain.Tasks
 
         public Task SetStatus(string statusId, string statusName)
         {
-            var _statusId = TermId.Create(statusId);
-            Status = RelationalFk<TermId>.Create(_statusId, statusName);
+            Status = RelationalFk.Create(statusId, statusName);
             return this;
         }
 
         public Task SetPriority(string priorityId, string priorityName)
         {
-            var _priorityId = TermId.Create(priorityId);
-            Status = RelationalFk<TermId>.Create(_priorityId, priorityName);
+            Status = RelationalFk.Create(priorityId, priorityName);
             return this;
         }
 

@@ -1,26 +1,30 @@
 ﻿using FluentValidation.Results;
 using Mapster;
 using NCQ.Test.Domain.Tasks;
+using NCQ.Test.Domain.Tasks.ValueObjects;
 using NCQ.Test.Gui.Domain.Common.Contracts.Gui;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace NCQ.Test.Gui.Windows.Components.Alter
 {
     public partial class AlterModal : DevExpress.XtraEditors.XtraForm, IValueModal<Task>
     {
-        public AlterModal()
+        public string[] RequiredCombos = new string[] { "STATUS", "PRIORITIES" };
+
+        public AlterModal(IDictionary<string, List<RelationalFk>> combos)
         {
             InitializeComponent();
             InitializeBinding();
-            Initialize();
+            Initialize(combos);
         }
 
-        public AlterModal(Task task)
+        public AlterModal(IDictionary<string, List<RelationalFk>> combos, Task task)
         {
             InitializeComponent();
             InitializeBinding();
             Map(task);
-            Initialize();
+            Initialize(combos);
         }
 
         private void InitializeBinding()
@@ -41,9 +45,10 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
             FormMvvm.SetViewModel(typeof(AlterModalViewModel), value);
         }        
 
-        private void Initialize()
+        private void Initialize(IDictionary<string, List<RelationalFk>> combos)
         {
-
+            CtrlState.Properties.Items.AddRange(combos["STATES"]);
+            CtrlPriority.Properties.Items.AddRange(combos["PRIORITIES"]);
         }
 
         private void ApplyError(string ctrlName, string message)

@@ -1,20 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.DependencyInjection;
+using NCQ.Test.Gui.Domain.Common.Contracts.Service;
+using System;
 using System.Windows.Forms;
 
 namespace NCQ.Test.Gui
 {
     public partial class Main : Form
     {
-        public Main()
+        private readonly ITermService _term;
+        private readonly ITaskService _task;
+
+        public Main(IServiceProvider provider)
         {
+            _term = provider.GetService<ITermService>();
+            _task = provider.GetService<ITaskService>();
+
             InitializeComponent();
+        }
+
+        private void Initialize()
+        {
         }
     }
 }
