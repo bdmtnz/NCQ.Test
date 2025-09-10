@@ -11,6 +11,7 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
 {
     public partial class AlterModal : Form, IValueModal<Task>
     {
+        private readonly AlterModalViewModel _viewModel = AlterModalViewModel.CreateDefault();
         public string[] RequiredCombos = new string[] { "STATUS", "PRIORITIES" };
 
         public AlterModal(IDictionary<string, List<ComboItem>> combos)
@@ -18,21 +19,24 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
 
-            InitializeBinding();
             Initialize(combos);
+            Map(null);
+            InitializeBinding();
         }
 
         public AlterModal(IDictionary<string, List<ComboItem>> combos, Task task)
         {
             InitializeComponent();
-            InitializeBinding();
-            Map(task);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+
             Initialize(combos);
+            Map(task);
+            InitializeBinding();
         }
 
         private void InitializeBinding()
         {
-            FormMvvm.SetViewModel(typeof(AlterModalViewModel), AlterModalViewModel.CreateDefault());
+            FormMvvm.SetViewModel(typeof(AlterModalViewModel), _viewModel);
 
             FormMvvm.SetBinding(ModalTitle, c => c.Text, "Title");
             FormMvvm.SetBinding(CtrlDescription, c => c.Text, "Description");
@@ -44,21 +48,28 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
 
         private void Map(Task value)
         {
-            if (value == null)
+            if (value != null)
             {
-                FormMvvm.SetViewModel(typeof(AlterModalViewModel), AlterModalViewModel.CreateDefault());
+                _viewModel.Id = value.Id;
+                _viewModel.Description = value.Description;
+                _viewModel.StatusId = value.StatusId;
+                _viewModel.PriorityId = value.PriorityId;
+                _viewModel.Commitment = value.Commitment;
+                _viewModel.Notes = value.Notes;
             }
-            FormMvvm.SetViewModel(typeof(AlterModalViewModel), value.Adapt<AlterModalViewModel>());
+            else
+            {
+                var states = CtrlStatusId.Properties.DataSource as List<ComboItem>;
+                var stateDefault = states.FirstOrDefault();
+                _viewModel.StatusId = stateDefault.Id;
+            }
         }        
 
         private void Initialize(IDictionary<string, List<ComboItem>> combos)
         {
-            var stateDefault = combos["STATES"]
-                .FirstOrDefault();
             CtrlStatusId.Properties.DataSource = combos["STATES"];
             CtrlStatusId.Properties.DisplayMember = "Text";
             CtrlStatusId.Properties.ValueMember = "Id";
-            CtrlStatusId.EditValue = stateDefault.Id;
 
             CtrlPriorityId.Properties.DataSource = combos["PRIORITIES"];
             CtrlPriorityId.Properties.DisplayMember = "Text";

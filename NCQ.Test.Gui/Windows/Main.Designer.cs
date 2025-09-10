@@ -95,6 +95,7 @@
             this.ColumnStatus});
             this.GidViewTasks.GridControl = this.GridTasks;
             this.GidViewTasks.Name = "GidViewTasks";
+            this.GidViewTasks.OptionsBehavior.ReadOnly = true;
             // 
             // ColumnId
             // 
@@ -220,7 +221,7 @@
             this.ContextMenuEditBtn,
             this.ContextMenuRemoveBtn});
             this.ContextMenuRow.Name = "ContextMenuRow";
-            this.ContextMenuRow.Size = new System.Drawing.Size(181, 70);
+            this.ContextMenuRow.Size = new System.Drawing.Size(118, 48);
             // 
             // ContextMenuEditBtn
             // 
