@@ -6,10 +6,11 @@ using NCQ.Test.Domain.Tasks.ValueObjects;
 using NCQ.Test.Gui.Domain.Common.Contracts.Gui;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace NCQ.Test.Gui.Windows.Components.Alter
 {
-    public partial class AlterModal : DevExpress.XtraEditors.XtraForm, IValueModal<Task>
+    public partial class AlterModal : Form, IValueModal<Task>
     {
         public string[] RequiredCombos = new string[] { "STATUS", "PRIORITIES" };
 
