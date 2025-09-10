@@ -6,9 +6,10 @@ namespace NCQ.Test.Domain.Tasks.ValueObjects
 {
     public class RelationalFk : ValueObject
     {
-        public string Id { get; protected set; }
         public string Text { get; protected set; }
+        public string Id { get; protected set; }
 
+        public RelationalFk() { }
         private RelationalFk(string id, string text)
         {
             Id = id;

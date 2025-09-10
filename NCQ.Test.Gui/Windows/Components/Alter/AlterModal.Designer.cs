@@ -37,35 +37,39 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.CtrlNotes = new DevExpress.XtraEditors.MemoEdit();
-            this.CtrlState = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.CtrlPriority = new DevExpress.XtraEditors.ComboBoxEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.CtrlCommitmentStart = new DevExpress.XtraEditors.DateEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.ModalTitle = new DevExpress.XtraEditors.LabelControl();
             this.ModalDesciption = new DevExpress.XtraEditors.LabelControl();
             this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
             this.FormError = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.FormMvvm = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.CtrlState = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.CtrlPriority = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.CtrlCommitment = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).BeginInit();
             this.stackPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CtrlDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CtrlNotes.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CtrlState.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CtrlPriority.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FormError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FormMvvm)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlState.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlPriority.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitment.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitment.Properties.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // WinAccept
@@ -130,15 +134,6 @@
             this.CtrlNotes.Size = new System.Drawing.Size(460, 72);
             this.CtrlNotes.TabIndex = 6;
             // 
-            // CtrlState
-            // 
-            this.CtrlState.Location = new System.Drawing.Point(13, 186);
-            this.CtrlState.Name = "CtrlState";
-            this.CtrlState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CtrlState.Size = new System.Drawing.Size(150, 28);
-            this.CtrlState.TabIndex = 9;
-            // 
             // labelControl3
             // 
             this.labelControl3.Location = new System.Drawing.Point(14, 167);
@@ -149,34 +144,25 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(168, 167);
+            this.labelControl4.Location = new System.Drawing.Point(169, 167);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(42, 13);
             this.labelControl4.TabIndex = 12;
             this.labelControl4.Text = "Prioridad";
             // 
-            // CtrlPriority
-            // 
-            this.CtrlPriority.Location = new System.Drawing.Point(169, 186);
-            this.CtrlPriority.Name = "CtrlPriority";
-            this.CtrlPriority.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CtrlPriority.Size = new System.Drawing.Size(150, 28);
-            this.CtrlPriority.TabIndex = 11;
-            // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.CtrlCommitment);
+            this.groupControl1.Controls.Add(this.CtrlPriority);
+            this.groupControl1.Controls.Add(this.CtrlState);
             this.groupControl1.Controls.Add(this.labelControl10);
             this.groupControl1.Controls.Add(this.labelControl9);
             this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.labelControl8);
-            this.groupControl1.Controls.Add(this.CtrlCommitmentStart);
             this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.CtrlDescription);
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.labelControl1);
-            this.groupControl1.Controls.Add(this.CtrlPriority);
-            this.groupControl1.Controls.Add(this.CtrlState);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.CtrlNotes);
@@ -202,7 +188,7 @@
             // 
             this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl9.Appearance.Options.UseForeColor = true;
-            this.labelControl9.Location = new System.Drawing.Point(212, 167);
+            this.labelControl9.Location = new System.Drawing.Point(213, 167);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(6, 13);
             this.labelControl9.TabIndex = 15;
@@ -225,18 +211,6 @@
             this.labelControl8.Size = new System.Drawing.Size(6, 13);
             this.labelControl8.TabIndex = 14;
             this.labelControl8.Text = "*";
-            // 
-            // CtrlCommitmentStart
-            // 
-            this.CtrlCommitmentStart.EditValue = null;
-            this.CtrlCommitmentStart.Location = new System.Drawing.Point(325, 186);
-            this.CtrlCommitmentStart.Name = "CtrlCommitmentStart";
-            this.CtrlCommitmentStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CtrlCommitmentStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CtrlCommitmentStart.Size = new System.Drawing.Size(149, 28);
-            this.CtrlCommitmentStart.TabIndex = 1;
             // 
             // labelControl7
             // 
@@ -285,6 +259,54 @@
             // 
             this.FormMvvm.ContainerControl = this;
             // 
+            // CtrlState
+            // 
+            this.CtrlState.Location = new System.Drawing.Point(14, 186);
+            this.CtrlState.Name = "CtrlState";
+            this.CtrlState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CtrlState.Properties.NullText = "";
+            this.CtrlState.Properties.PopupView = this.gridLookUpEdit1View;
+            this.CtrlState.Size = new System.Drawing.Size(149, 28);
+            this.CtrlState.TabIndex = 16;
+            // 
+            // gridLookUpEdit1View
+            // 
+            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
+            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // CtrlPriority
+            // 
+            this.CtrlPriority.Location = new System.Drawing.Point(169, 186);
+            this.CtrlPriority.Name = "CtrlPriority";
+            this.CtrlPriority.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CtrlPriority.Properties.NullText = "";
+            this.CtrlPriority.Properties.PopupView = this.gridView1;
+            this.CtrlPriority.Size = new System.Drawing.Size(150, 28);
+            this.CtrlPriority.TabIndex = 17;
+            // 
+            // gridView1
+            // 
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // CtrlCommitment
+            // 
+            this.CtrlCommitment.EditValue = null;
+            this.CtrlCommitment.Location = new System.Drawing.Point(326, 187);
+            this.CtrlCommitment.Name = "CtrlCommitment";
+            this.CtrlCommitment.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CtrlCommitment.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CtrlCommitment.Size = new System.Drawing.Size(148, 28);
+            this.CtrlCommitment.TabIndex = 18;
+            // 
             // AlterModal
             // 
             this.AcceptButton = this.WinAccept;
@@ -308,16 +330,18 @@
             this.stackPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CtrlDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CtrlNotes.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CtrlState.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CtrlPriority.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FormError)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FormMvvm)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlState.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlPriority.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitment.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitment.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,15 +356,12 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.MemoEdit CtrlNotes;
-        private DevExpress.XtraEditors.ComboBoxEdit CtrlState;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.ComboBoxEdit CtrlPriority;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl ModalTitle;
         private DevExpress.XtraEditors.LabelControl ModalDesciption;
         private DevExpress.XtraEditors.SvgImageBox svgImageBox1;
-        private DevExpress.XtraEditors.DateEdit CtrlCommitmentStart;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.LabelControl labelControl8;
@@ -348,5 +369,10 @@
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider FormError;
         private DevExpress.Utils.MVVM.MVVMContext FormMvvm;
+        private DevExpress.XtraEditors.GridLookUpEdit CtrlState;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
+        private DevExpress.XtraEditors.GridLookUpEdit CtrlPriority;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.DateEdit CtrlCommitment;
     }
 }

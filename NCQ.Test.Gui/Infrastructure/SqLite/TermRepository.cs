@@ -24,13 +24,13 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
             {
                 using (var reader = await command.ExecuteReaderAsync())
                 {
-                    if (reader.Read())
+                    while (reader.Read())
                     {
                         var item = Term.Create(
                             reader.GetString(0),
                             reader.GetString(1),
                             reader.GetString(2),
-                            reader.GetString(3)
+                            reader.IsDBNull(3) ? null : reader.GetString(3)
                         );
                         response.Add(item);
                     }
@@ -56,7 +56,7 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
                             reader.GetString(0),
                             reader.GetString(1),
                             reader.GetString(2),
-                            reader.GetString(3)
+                            reader.IsDBNull(3) ? null : reader.GetString(3)
                         );
                     }
                 }
@@ -76,13 +76,13 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
 
                 using (var reader = await command.ExecuteReaderAsync())
                 {
-                    if (reader.Read())
+                    while (reader.Read())
                     {
                         var item = Term.Create(
                             reader.GetString(0),
                             reader.GetString(1),
                             reader.GetString(2),
-                            reader.GetString(3)
+                            reader.IsDBNull(3) ? null : reader.GetString(3)
                         );
                         response.Add(item);
                     }

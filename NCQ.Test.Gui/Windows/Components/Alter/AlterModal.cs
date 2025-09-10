@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using DevExpress.XtraGrid.Views.Card;
+using FluentValidation.Results;
 using Mapster;
 using NCQ.Test.Domain.Tasks;
 using NCQ.Test.Domain.Tasks.ValueObjects;
@@ -47,8 +48,16 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
 
         private void Initialize(IDictionary<string, List<RelationalFk>> combos)
         {
-            CtrlState.Properties.Items.AddRange(combos["STATES"]);
-            CtrlPriority.Properties.Items.AddRange(combos["PRIORITIES"]);
+            var stateDefault = combos["STATES"]
+                .FirstOrDefault();
+            CtrlState.Properties.DataSource = combos["STATES"];
+            CtrlState.Properties.DisplayMember = "Text";
+            CtrlState.Properties.ValueMember = "Id";
+            CtrlState.EditValue = stateDefault.Id;
+
+            CtrlPriority.Properties.DataSource = combos["PRIORITIES"];
+            CtrlPriority.Properties.DisplayMember = "Text";
+            CtrlPriority.Properties.ValueMember = "Id";
         }
 
         private void ApplyError(string ctrlName, string message)

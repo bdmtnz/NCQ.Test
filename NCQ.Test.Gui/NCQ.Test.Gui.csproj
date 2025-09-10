@@ -299,6 +299,7 @@
     <Compile Include="Application\Dependencies.cs" />
     <Compile Include="Application\Services\TaskService.cs" />
     <Compile Include="Application\Services\TermService.cs" />
+    <Compile Include="Common\Mapping\RelationalFkMappingConfig.cs" />
     <Compile Include="Dependencies.cs" />
     <Compile Include="Domain\Common\Base\AggregateRoot.cs" />
     <Compile Include="Domain\Common\Base\AggregateRootId.cs" />
