@@ -21,15 +21,15 @@ namespace NCQ.Test.Domain.Tasks
             return new Task(id, description, notes);
         }
 
-        public Task SetStatus(string statusId)
+        public Task SetStatus(long statusId)
         {
             StatusId = statusId;
             return this;
         }
 
-        public Task SetPriority(string priorityId)
+        public Task SetPriority(long priorityId)
         {
-            StatusId = priorityId;
+            PriorityId = priorityId;
             return this;
         }
 

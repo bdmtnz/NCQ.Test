@@ -49,14 +49,14 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
             {
                 using (var reader = await command.ExecuteReaderAsync())
                 {
-                    if (reader.Read())
+                    while (reader.Read())
                     {
                         var item = Task.Create(
                             reader.GetInt64(0),
                             reader.GetString(1),
                             reader.GetString(4))
-                        .SetStatus(reader.GetString(2))
-                        .SetPriority(reader.GetString(3))
+                        .SetStatus(reader.GetInt64(2))
+                        .SetPriority(reader.GetInt64(3))
                         .SetCommitment(reader.GetDateTime(5));
 
                         response.Add(item);
@@ -83,8 +83,8 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
                             reader.GetInt64(0),
                             reader.GetString(1),
                             reader.GetString(4))
-                        .SetStatus(reader.GetString(2))
-                        .SetPriority(reader.GetString(3))
+                        .SetStatus(reader.GetInt64(2))
+                        .SetPriority(reader.GetInt64(3))
                         .SetCommitment(reader.GetDateTime(5));
                     }
                 }
