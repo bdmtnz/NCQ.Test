@@ -82,6 +82,7 @@
     <Reference Include="DevExpress.Data.v25.1, Version=25.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Drawing.v25.1, Version=25.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Images.v25.1, Version=25.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Mvvm.v25.1, Version=25.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v25.1.Core, Version=25.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Pdf.v25.1.Core, Version=25.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v25.1.Core, Version=25.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -110,6 +111,15 @@
     </Reference>
     <Reference Include="FluentValidation.DependencyInjectionExtensions, Version=11.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.DependencyInjectionExtensions.11.11.0\lib\netstandard2.0\FluentValidation.DependencyInjectionExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Mapster, Version=7.3.0.0, Culture=neutral, PublicKeyToken=2f39883af23c29a8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mapster.7.3.0\lib\netstandard2.0\Mapster.dll</HintPath>
+    </Reference>
+    <Reference Include="Mapster.Core, Version=1.2.0.0, Culture=neutral, PublicKeyToken=e64997d676a9c1d3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mapster.Core.1.2.0\lib\net45\Mapster.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Mapster.DependencyInjection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e64997d676a9c1d3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mapster.DependencyInjection.1.0.0\lib\net45\Mapster.DependencyInjection.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.8, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.8\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -302,6 +312,7 @@
     <Compile Include="Domain\Common\Contracts\Common\ICache.cs" />
     <Compile Include="Domain\Common\Contracts\Common\ICommand.cs" />
     <Compile Include="Domain\Common\Contracts\Common\IQuery.cs" />
+    <Compile Include="Domain\Common\Contracts\Gui\IValueModal.cs" />
     <Compile Include="Domain\Common\Contracts\Repositories\ITaskRepository.cs" />
     <Compile Include="Domain\Common\Contracts\Repositories\ITermRepository.cs" />
     <Compile Include="Domain\Common\Contracts\Service\ITaskService.cs" />
@@ -324,7 +335,9 @@
     <Compile Include="Windows\Components\Alter\AlterModal.Designer.cs">
       <DependentUpon>AlterModal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Components\Alter\AlterModalValidator.cs" />
+    <Compile Include="Windows\Components\Alter\Model\AlterModalMappingConfig.cs" />
+    <Compile Include="Windows\Components\Alter\Model\AlterModalValidator.cs" />
+    <Compile Include="Windows\Components\Alter\Model\AlterModalViewModel.cs" />
     <Compile Include="Windows\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -336,6 +349,7 @@
     <Content Include="favicon.ico" />
     <EmbeddedResource Include="Windows\Components\Alter\AlterModal.resx">
       <DependentUpon>AlterModal.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

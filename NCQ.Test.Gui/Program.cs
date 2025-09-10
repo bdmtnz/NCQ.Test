@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NCQ.Test.Gui.Windows.Components;
+using NCQ.Test.Gui.Windows.Components.Alter;
 using System;
 
 namespace NCQ.Test.Gui

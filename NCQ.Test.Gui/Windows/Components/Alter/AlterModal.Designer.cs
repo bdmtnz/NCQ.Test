@@ -1,4 +1,4 @@
-﻿namespace NCQ.Test.Gui.Windows.Components
+﻿namespace NCQ.Test.Gui.Windows.Components.Alter
 {
     partial class AlterModal
     {
@@ -52,6 +52,7 @@
             this.ModalDesciption = new DevExpress.XtraEditors.LabelControl();
             this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
             this.FormError = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.FormMvvm = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).BeginInit();
             this.stackPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CtrlDescription.Properties)).BeginInit();
@@ -64,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FormError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FormMvvm)).BeginInit();
             this.SuspendLayout();
             // 
             // WinAccept
@@ -73,6 +75,7 @@
             this.WinAccept.Size = new System.Drawing.Size(96, 41);
             this.WinAccept.TabIndex = 1;
             this.WinAccept.Text = "Guardar";
+            this.WinAccept.Click += new System.EventHandler(this.WinAccept_Click);
             // 
             // stackPanel1
             // 
@@ -278,6 +281,10 @@
             // 
             this.FormError.ContainerControl = this;
             // 
+            // FormMvvm
+            // 
+            this.FormMvvm.ContainerControl = this;
+            // 
             // AlterModal
             // 
             this.AcceptButton = this.WinAccept;
@@ -290,7 +297,7 @@
             this.Controls.Add(this.ModalTitle);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.stackPanel1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("AlterModal.IconOptions.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AlterModal";
@@ -310,6 +317,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FormError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FormMvvm)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,5 +347,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider FormError;
+        private DevExpress.Utils.MVVM.MVVMContext FormMvvm;
     }
 }
