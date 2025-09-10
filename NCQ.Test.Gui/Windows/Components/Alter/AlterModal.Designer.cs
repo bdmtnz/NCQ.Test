@@ -70,9 +70,9 @@
             // 
             // WinAccept
             // 
-            this.WinAccept.Location = new System.Drawing.Point(403, 17);
+            this.WinAccept.Location = new System.Drawing.Point(419, 14);
             this.WinAccept.Name = "WinAccept";
-            this.WinAccept.Size = new System.Drawing.Size(96, 41);
+            this.WinAccept.Size = new System.Drawing.Size(80, 32);
             this.WinAccept.TabIndex = 1;
             this.WinAccept.Text = "Guardar";
             this.WinAccept.Click += new System.EventHandler(this.WinAccept_Click);
@@ -83,20 +83,20 @@
             this.stackPanel1.Controls.Add(this.WinCancel);
             this.stackPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.stackPanel1.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.RightToLeft;
-            this.stackPanel1.Location = new System.Drawing.Point(0, 438);
+            this.stackPanel1.Location = new System.Drawing.Point(0, 439);
             this.stackPanel1.LookAndFeel.SkinName = "WXI";
             this.stackPanel1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.stackPanel1.Name = "stackPanel1";
-            this.stackPanel1.Size = new System.Drawing.Size(516, 76);
+            this.stackPanel1.Size = new System.Drawing.Size(516, 61);
             this.stackPanel1.TabIndex = 2;
             this.stackPanel1.UseSkinIndents = true;
             // 
             // WinCancel
             // 
             this.WinCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.WinCancel.Location = new System.Drawing.Point(301, 17);
+            this.WinCancel.Location = new System.Drawing.Point(333, 14);
             this.WinCancel.Name = "WinCancel";
-            this.WinCancel.Size = new System.Drawing.Size(96, 41);
+            this.WinCancel.Size = new System.Drawing.Size(80, 32);
             this.WinCancel.TabIndex = 2;
             this.WinCancel.Text = "Cancelar";
             // 
@@ -180,7 +180,7 @@
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.CtrlNotes);
-            this.groupControl1.Location = new System.Drawing.Point(15, 102);
+            this.groupControl1.Location = new System.Drawing.Point(15, 103);
             this.groupControl1.LookAndFeel.SkinName = "WXI";
             this.groupControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.groupControl1.Name = "groupControl1";
@@ -291,7 +291,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.WinCancel;
-            this.ClientSize = new System.Drawing.Size(516, 514);
+            this.ClientSize = new System.Drawing.Size(516, 500);
             this.Controls.Add(this.svgImageBox1);
             this.Controls.Add(this.ModalDesciption);
             this.Controls.Add(this.ModalTitle);

@@ -26,6 +26,8 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
         private void InitializeBinding()
         {
             FormMvvm.SetViewModel(typeof(AlterModalViewModel), AlterModalViewModel.CreateDefault());
+
+            FormMvvm.SetBinding(ModalTitle, c => c.Text, "Title");
             FormMvvm.SetBinding(CtrlDescription, c => c.Text, "Description");
         }
 
