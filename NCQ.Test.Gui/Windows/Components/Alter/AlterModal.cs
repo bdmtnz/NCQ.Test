@@ -50,14 +50,14 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
         {
             var stateDefault = combos["STATES"]
                 .FirstOrDefault();
-            CtrlState.Properties.DataSource = combos["STATES"];
-            CtrlState.Properties.DisplayMember = "Text";
-            CtrlState.Properties.ValueMember = "Id";
-            CtrlState.EditValue = stateDefault.Id;
+            CtrlStateId.Properties.DataSource = combos["STATES"];
+            CtrlStateId.Properties.DisplayMember = "Text";
+            CtrlStateId.Properties.ValueMember = "Id";
+            CtrlStateId.EditValue = stateDefault.Id;
 
-            CtrlPriority.Properties.DataSource = combos["PRIORITIES"];
-            CtrlPriority.Properties.DisplayMember = "Text";
-            CtrlPriority.Properties.ValueMember = "Id";
+            CtrlPriorityId.Properties.DataSource = combos["PRIORITIES"];
+            CtrlPriorityId.Properties.DisplayMember = "Text";
+            CtrlPriorityId.Properties.ValueMember = "Id";
         }
 
         private void ApplyError(string ctrlName, string message)

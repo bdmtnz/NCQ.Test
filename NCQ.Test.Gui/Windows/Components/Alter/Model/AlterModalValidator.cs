@@ -13,18 +13,19 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
                 .NotNull()
                 .WithMessage("La descripción no es válida");
 
-            //RuleFor(x => x.Status)
-            //    .NotNull()
-            //    .WithMessage("El estado no es válido");
+            RuleFor(x => x.StatusId)
+                .NotNull()
+                .WithMessage("El estado no es válido");
 
-            //RuleFor(x => x.Priority)
-            //    .NotNull()
-            //    .WithMessage("La prioridad no es válida");
+            RuleFor(x => x.PriorityId)
+                .NotNull()
+                .WithMessage("La prioridad no es válida");
 
-            //RuleFor(x => x.Commitment)
-            //    .NotEmpty()
-            //    .NotNull()
-            //    .WithMessage("La fecha de compromiso no es válida");
+            RuleFor(x => x.Commitment)
+                .NotEmpty()
+                .WithMessage("La fecha de compromiso no es válida")
+                .NotNull()
+                .WithMessage("La fecha de compromiso no es válida");
         }
     }
 }

@@ -16,7 +16,7 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
         {
             return new AlterModalViewModel()
             {
-                Description = "Lol"
+                Description = ""
             };
         }
     }
