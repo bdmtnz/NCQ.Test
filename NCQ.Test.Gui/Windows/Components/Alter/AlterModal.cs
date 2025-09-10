@@ -16,6 +16,8 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
         public AlterModal(IDictionary<string, List<ComboItem>> combos)
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+
             InitializeBinding();
             Initialize(combos);
         }

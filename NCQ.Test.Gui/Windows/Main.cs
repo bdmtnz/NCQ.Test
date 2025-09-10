@@ -26,7 +26,9 @@ namespace NCQ.Test.Gui
             _task = provider.GetService<ITaskService>();
 
             InitializeComponent();
-            Initialize();
+			FormBorderStyle = FormBorderStyle.FixedSingle;
+
+			Initialize();
         }
 
         private async void Initialize()
@@ -55,5 +57,15 @@ namespace NCQ.Test.Gui
             var modal = new AlterModal(combos);
             var result = modal.ShowDialog();
         }
+
+        private void HTProfile_Click(object sender, EventArgs e)
+        {
+			try
+			{
+				string url = "https://github.com/bdmtnz";
+				System.Diagnostics.Process.Start(url);
+			}
+			catch { }
+		}
     }
 }
