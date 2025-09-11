@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using NCQ.Test.Domain.Tasks;
 
 namespace NCQ.Test.Gui.Windows.Components.Alter
 {
@@ -15,10 +14,14 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
 
             RuleFor(x => x.StatusId)
                 .NotNull()
+                .WithMessage("El estado no es válido")
+                .GreaterThan(0)
                 .WithMessage("El estado no es válido");
 
             RuleFor(x => x.PriorityId)
                 .NotNull()
+                .WithMessage("La prioridad no es válida")
+                .GreaterThan(0)
                 .WithMessage("La prioridad no es válida");
 
             RuleFor(x => x.Commitment)

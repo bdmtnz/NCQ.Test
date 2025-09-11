@@ -54,7 +54,7 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
                         var item = Task.Create(
                             reader.GetInt64(0),
                             reader.GetString(1),
-                            reader.GetString(4))
+                            reader.IsDBNull(4) ? default : reader.GetString(4))
                         .SetStatus(reader.GetInt64(2))
                         .SetPriority(reader.GetInt64(3))
                         .SetCommitment(reader.GetDateTime(5));
@@ -82,7 +82,7 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
                         response = Task.Create(
                             reader.GetInt64(0),
                             reader.GetString(1),
-                            reader.GetString(4))
+                            reader.IsDBNull(4) ? default : reader.GetString(4))
                         .SetStatus(reader.GetInt64(2))
                         .SetPriority(reader.GetInt64(3))
                         .SetCommitment(reader.GetDateTime(5));
