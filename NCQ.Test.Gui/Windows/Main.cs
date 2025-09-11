@@ -6,6 +6,7 @@ using NCQ.Test.Gui.Domain.Common;
 using NCQ.Test.Gui.Domain.Common.Contracts.Service;
 using NCQ.Test.Gui.Windows;
 using NCQ.Test.Gui.Windows.Components.Alter;
+using NCQ.Test.Gui.Windows.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace NCQ.Test.Gui
 {
     public partial class Main : Form
     {
+        private MainViewModel _viewModel = MainViewModel.CreateDefault();
         private readonly IMapper _mapper;
         private readonly ITermService _term;
         private readonly ITaskService _task;
@@ -34,24 +36,41 @@ namespace NCQ.Test.Gui
             _contextConfigurator = new MainContextMenuSettingFactory("ContextMenuBtn");
 
 			InitializeComponent();
-			FormBorderStyle = FormBorderStyle.FixedSingle;
 
 			Initialize();
+            InitializeBinding();
+        }
+        private void InitializeBinding()
+        {
+            FormMvvm.SetViewModel(typeof(MainViewModel), _viewModel);
+
+            FormMvvm.SetBinding(CtrlPriorityId, c => c.EditValue, "PriorityId");
+            FormMvvm.SetBinding(CtrlStatusId, c => c.EditValue, "StatusId");
+            FormMvvm.SetBinding(CtrlCommitmentStart, c => c.EditValue, "CommitmentStart");
+            FormMvvm.SetBinding(CtrlCommitmentEnd, c => c.EditValue, "CommitmentEnd");
         }
 
-        private void InitializeStatusRepository(List<ComboItem> items)
+        private void InitializeStatusCombos(List<ComboItem> items)
 		{
 			StatusRepository.DataSource = items;
             StatusRepository.DisplayMember = "Text";
             StatusRepository.ValueMember = "Id";
-		}
 
-		private void InitializePriorityRepository(List<ComboItem> items)
+            CtrlStatusId.Properties.DataSource = items;
+            CtrlStatusId.Properties.DisplayMember = "Text";
+            CtrlStatusId.Properties.ValueMember = "Id";
+        }
+
+		private void InitializePriorityCombos(List<ComboItem> items)
 		{
 			PriorityRepository.DataSource = items;
 			PriorityRepository.DisplayMember = "Text";
 			PriorityRepository.ValueMember = "Id";
-		}
+
+            CtrlPriorityId.Properties.DataSource = items;
+            CtrlPriorityId.Properties.DisplayMember = "Text";
+            CtrlPriorityId.Properties.ValueMember = "Id";
+        }
 
         private async Task LoadData()
 		{
@@ -61,6 +80,8 @@ namespace NCQ.Test.Gui
 
 		private async void Initialize()
         {
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+
             var stateTerm = await _term.GetWithChildren("STATES");
             if (stateTerm != null)
             {
@@ -70,7 +91,7 @@ namespace NCQ.Test.Gui
 				combos.Add("STATES", states);
 				this.states.AddRange(stateTerm.Terms);
 
-				InitializeStatusRepository(states);
+				InitializeStatusCombos(states);
             }
 
             var priorityTerm = await _term.GetWithChildren("PRIORITIES");
@@ -82,7 +103,7 @@ namespace NCQ.Test.Gui
                 combos.Add("PRIORITIES", priorities);
                 this.priorities.AddRange(priorityTerm.Terms);
 
-				InitializePriorityRepository(priorities);
+				InitializePriorityCombos(priorities);
 			}
 
             await LoadData();
@@ -175,6 +196,18 @@ namespace NCQ.Test.Gui
                 await _task.Delete(focused);
                 await LoadData();
             }
+        }
+
+        private async void BtnFilter_Click(object sender, EventArgs e)
+        {
+            var vm = _viewModel;
+            await _task.Get();
+        }
+
+        private void BtnClean_Click(object sender, EventArgs e)
+        {
+            _viewModel = MainViewModel.CreateDefault();
+            InitializeBinding();
         }
     }
 }

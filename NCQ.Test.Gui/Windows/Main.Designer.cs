@@ -50,8 +50,8 @@
             this.ContextMenuRow = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ContextMenuBtnEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextMenuBtnRemove = new System.Windows.Forms.ToolStripMenuItem();
-            this.CommitmentStart = new DevExpress.XtraEditors.DateEdit();
-            this.CommitmentEnd = new DevExpress.XtraEditors.DateEdit();
+            this.CtrlCommitmentStart = new DevExpress.XtraEditors.DateEdit();
+            this.CtrlCommitmentEnd = new DevExpress.XtraEditors.DateEdit();
             this.CtrlStatusId = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.CtrlPriorityId = new DevExpress.XtraEditors.GridLookUpEdit();
@@ -61,9 +61,10 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.BtnFilter = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.BtnClean = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.FormMvvm = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.GridTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GidViewTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriorityRepository)).BeginInit();
@@ -72,10 +73,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
             this.ContextMenuRow.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CommitmentStart.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CommitmentStart.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CommitmentEnd.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CommitmentEnd.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentEnd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentEnd.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CtrlStatusId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CtrlPriorityId.Properties)).BeginInit();
@@ -84,6 +85,7 @@
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FormMvvm)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonCreate
@@ -263,33 +265,33 @@
             this.ContextMenuBtnRemove.Text = "Eliminar";
             this.ContextMenuBtnRemove.Click += new System.EventHandler(this.ContextMenuRemoveBtn_Click);
             // 
-            // CommitmentStart
+            // CtrlCommitmentStart
             // 
-            this.CommitmentStart.EditValue = null;
-            this.CommitmentStart.Location = new System.Drawing.Point(13, 53);
-            this.CommitmentStart.Name = "CommitmentStart";
-            this.CommitmentStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.CtrlCommitmentStart.EditValue = null;
+            this.CtrlCommitmentStart.Location = new System.Drawing.Point(13, 53);
+            this.CtrlCommitmentStart.Name = "CtrlCommitmentStart";
+            this.CtrlCommitmentStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CommitmentStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.CtrlCommitmentStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CommitmentStart.Properties.LookAndFeel.SkinName = "WXI";
-            this.CommitmentStart.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.CommitmentStart.Size = new System.Drawing.Size(100, 28);
-            this.CommitmentStart.TabIndex = 3;
+            this.CtrlCommitmentStart.Properties.LookAndFeel.SkinName = "WXI";
+            this.CtrlCommitmentStart.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.CtrlCommitmentStart.Size = new System.Drawing.Size(100, 28);
+            this.CtrlCommitmentStart.TabIndex = 3;
             // 
-            // CommitmentEnd
+            // CtrlCommitmentEnd
             // 
-            this.CommitmentEnd.EditValue = null;
-            this.CommitmentEnd.Location = new System.Drawing.Point(119, 53);
-            this.CommitmentEnd.Name = "CommitmentEnd";
-            this.CommitmentEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.CtrlCommitmentEnd.EditValue = null;
+            this.CtrlCommitmentEnd.Location = new System.Drawing.Point(119, 53);
+            this.CtrlCommitmentEnd.Name = "CtrlCommitmentEnd";
+            this.CtrlCommitmentEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CommitmentEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.CtrlCommitmentEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CommitmentEnd.Properties.LookAndFeel.SkinName = "WXI";
-            this.CommitmentEnd.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.CommitmentEnd.Size = new System.Drawing.Size(115, 28);
-            this.CommitmentEnd.TabIndex = 4;
+            this.CtrlCommitmentEnd.Properties.LookAndFeel.SkinName = "WXI";
+            this.CtrlCommitmentEnd.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.CtrlCommitmentEnd.Size = new System.Drawing.Size(115, 28);
+            this.CtrlCommitmentEnd.TabIndex = 4;
             // 
             // CtrlStatusId
             // 
@@ -372,21 +374,23 @@
             this.BtnFilter.Size = new System.Drawing.Size(93, 36);
             this.BtnFilter.TabIndex = 13;
             this.BtnFilter.Text = "Filtrar";
+            this.BtnFilter.Click += new System.EventHandler(this.BtnFilter_Click);
             // 
-            // simpleButton2
+            // BtnClean
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(515, 112);
-            this.simpleButton2.LookAndFeel.SkinName = "WXI";
-            this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(93, 36);
-            this.simpleButton2.TabIndex = 14;
-            this.simpleButton2.Text = "Limpiar";
+            this.BtnClean.Location = new System.Drawing.Point(515, 112);
+            this.BtnClean.LookAndFeel.SkinName = "WXI";
+            this.BtnClean.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.BtnClean.Name = "BtnClean";
+            this.BtnClean.Size = new System.Drawing.Size(93, 36);
+            this.BtnClean.TabIndex = 14;
+            this.BtnClean.Text = "Limpiar";
+            this.BtnClean.Click += new System.EventHandler(this.BtnClean_Click);
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.CommitmentStart);
-            this.groupControl1.Controls.Add(this.CommitmentEnd);
+            this.groupControl1.Controls.Add(this.CtrlCommitmentStart);
+            this.groupControl1.Controls.Add(this.CtrlCommitmentEnd);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Location = new System.Drawing.Point(18, 96);
@@ -407,6 +411,10 @@
             this.groupControl2.TabIndex = 16;
             this.groupControl2.Text = "General";
             // 
+            // FormMvvm
+            // 
+            this.FormMvvm.ContainerControl = this;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,7 +422,7 @@
             this.ClientSize = new System.Drawing.Size(921, 557);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
-            this.Controls.Add(this.simpleButton2);
+            this.Controls.Add(this.BtnClean);
             this.Controls.Add(this.BtnFilter);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.ButtonCreate);
@@ -436,10 +444,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
             this.ContextMenuRow.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.CommitmentStart.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CommitmentStart.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CommitmentEnd.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CommitmentEnd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentStart.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentEnd.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CtrlCommitmentEnd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CtrlStatusId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CtrlPriorityId.Properties)).EndInit();
@@ -450,6 +458,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FormMvvm)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,8 +486,8 @@
         private System.Windows.Forms.ContextMenuStrip ContextMenuRow;
         private System.Windows.Forms.ToolStripMenuItem ContextMenuBtnEdit;
         private System.Windows.Forms.ToolStripMenuItem ContextMenuBtnRemove;
-        private DevExpress.XtraEditors.DateEdit CommitmentStart;
-        private DevExpress.XtraEditors.DateEdit CommitmentEnd;
+        private DevExpress.XtraEditors.DateEdit CtrlCommitmentStart;
+        private DevExpress.XtraEditors.DateEdit CtrlCommitmentEnd;
         private DevExpress.XtraEditors.GridLookUpEdit CtrlPriorityId;
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit2View;
         private DevExpress.XtraEditors.GridLookUpEdit CtrlStatusId;
@@ -488,9 +497,10 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.SimpleButton BtnFilter;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton BtnClean;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DevExpress.Utils.MVVM.MVVMContext FormMvvm;
     }
 }
 
