@@ -60,7 +60,7 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.BtnFilter = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -363,15 +363,15 @@
             this.labelControl5.TabIndex = 12;
             this.labelControl5.Text = "Prioridad";
             // 
-            // simpleButton1
+            // BtnFilter
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(515, 154);
-            this.simpleButton1.LookAndFeel.SkinName = "WXI";
-            this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(93, 36);
-            this.simpleButton1.TabIndex = 13;
-            this.simpleButton1.Text = "Filtrar";
+            this.BtnFilter.Location = new System.Drawing.Point(515, 154);
+            this.BtnFilter.LookAndFeel.SkinName = "WXI";
+            this.BtnFilter.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.BtnFilter.Name = "BtnFilter";
+            this.BtnFilter.Size = new System.Drawing.Size(93, 36);
+            this.BtnFilter.TabIndex = 13;
+            this.BtnFilter.Text = "Filtrar";
             // 
             // simpleButton2
             // 
@@ -415,7 +415,7 @@
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.simpleButton2);
-            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.BtnFilter);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.ButtonCreate);
             this.Controls.Add(this.HTProfile);
@@ -487,7 +487,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton BtnFilter;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
