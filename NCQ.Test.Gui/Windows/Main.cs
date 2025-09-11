@@ -75,9 +75,10 @@ namespace NCQ.Test.Gui
 
         private async Task LoadData()
 		{
-			var tasks = await _task.Get();
-			GridTasks.DataSource = tasks;
-		}
+            var dto = _viewModel.Adapt<TaskFilterDto>();
+            var tasks = await _task.Filter(dto);
+            GridTasks.DataSource = tasks;
+        }
 
 		private async void Initialize()
         {
@@ -110,13 +111,20 @@ namespace NCQ.Test.Gui
             await LoadData();
 		}
 
-        private async Task AlterTask(Test.Domain.Tasks.Task task)
+        private async Task<int> AlterTask(Test.Domain.Tasks.Task task)
         {
-			var rowAffecteds = await _task.Add(task);
-			if (rowAffecteds > 0)
-			{
-				await LoadData();
-			}
+            var rowAffecteds = 0;
+
+            if (task.Id == default)
+            {
+                rowAffecteds = await _task.Add(task);
+            }
+            else
+            {
+                rowAffecteds = await _task.Update(task);
+            }
+
+            return rowAffecteds;
 		}
 
         private async void ButtonCreate_Click(object sender, EventArgs e)
@@ -127,7 +135,11 @@ namespace NCQ.Test.Gui
 			{
 				var value = modal.GetValue();
                 await AlterTask(value);
-			}
+
+                CleanFilters();
+                var tasks = await _task.Get();
+                GridTasks.DataSource = tasks;
+            }
         }
 
         private void HTProfile_Click(object sender, EventArgs e)
@@ -180,6 +192,8 @@ namespace NCQ.Test.Gui
 			{
 				var value = modal.GetValue();
 				await AlterTask(value);
+
+                await LoadData();
 			}
 		}
 
@@ -199,17 +213,14 @@ namespace NCQ.Test.Gui
             }
         }
 
-        private async void BtnFilter_Click(object sender, EventArgs e)
-        {
-            var dto = _viewModel.Adapt<TaskFilterDto>();
-            var tasks = await _task.Filter(dto);
-            GridTasks.DataSource = tasks;
-        }
+        private async void BtnFilter_Click(object sender, EventArgs e) => await LoadData();
 
-        private void BtnClean_Click(object sender, EventArgs e)
+        private void CleanFilters()
         {
             _viewModel = MainViewModel.CreateDefault();
             InitializeBinding();
         }
+
+        private void BtnClean_Click(object sender, EventArgs e) => CleanFilters();
     }
 }
