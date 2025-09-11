@@ -65,6 +65,7 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.FormMvvm = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.GridTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GidViewTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriorityRepository)).BeginInit();
@@ -415,11 +416,20 @@
             // 
             this.FormMvvm.ContainerControl = this;
             // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(600, 53);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(301, 13);
+            this.labelControl6.TabIndex = 22;
+            this.labelControl6.Text = "TIP✨: Click derecho sobre una fila para interactuar con ella 🚀";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(921, 557);
+            this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.BtnClean);
@@ -501,6 +511,7 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.Utils.MVVM.MVVMContext FormMvvm;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
     }
 }
 
