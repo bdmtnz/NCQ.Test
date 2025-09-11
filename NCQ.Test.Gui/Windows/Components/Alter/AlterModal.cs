@@ -3,6 +3,7 @@ using Mapster;
 using NCQ.Test.Domain.Tasks;
 using NCQ.Test.Gui.Domain.Common;
 using NCQ.Test.Gui.Domain.Common.Contracts.Gui;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -17,8 +18,6 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
         public AlterModal(IDictionary<string, List<ComboItem>> combos)
         {
             InitializeComponent();
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-
             Initialize(combos);
             Map(null);
             InitializeBinding();
@@ -27,8 +26,6 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
         public AlterModal(IDictionary<string, List<ComboItem>> combos, Task task)
         {
             InitializeComponent();
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-
             Initialize(combos);
             Map(task);
             InitializeBinding();
@@ -67,6 +64,9 @@ namespace NCQ.Test.Gui.Windows.Components.Alter
 
         private void Initialize(IDictionary<string, List<ComboItem>> combos)
         {
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            CtrlCommitment.Properties.MinDate = DateTime.Now;
+
             CtrlStatusId.Properties.DataSource = combos["STATES"];
             CtrlStatusId.Properties.DisplayMember = "Text";
             CtrlStatusId.Properties.ValueMember = "Id";
