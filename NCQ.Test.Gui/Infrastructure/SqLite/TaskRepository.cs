@@ -1,5 +1,6 @@
 ﻿using NCQ.Test.Domain.Tasks;
 using NCQ.Test.Gui.Domain.Common.Contracts.Persistence.Repositories;
+using NCQ.Test.Gui.Domain.Common.Contracts.Repositories.Tasks;
 using System.Collections.Generic;
 using System.Data.SQLite;
 
@@ -106,6 +107,42 @@ namespace NCQ.Test.Gui.Infrastructure.SqLite
                 command.Parameters.AddWithValue("@commitment", entity.Commitment);
                 return command.ExecuteNonQueryAsync();
             }
+        }
+
+        public async System.Threading.Tasks.Task<List<Task>> Filter(TaskFilterDto dto)
+        {
+            var response = new List<Task>();
+
+            var builder = TaskFilterBuilder.Create(dto.StatusId, dto.PriorityId, dto.CommitmentStart, dto.CommitmentEnd);
+            var conditions = builder.GetCondition();
+
+            var queryText = 
+                $@"SELECT Id, Description, StatusId, PriorityId, Notes, Commitment 
+                FROM Tasks 
+                WHERE {conditions}
+                ORDER BY Commitment ASC;";
+
+            using (var command = new SQLiteCommand(queryText, _connection))
+            {
+                command.Parameters.AddRange(builder.GetParameters());
+
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    while (reader.Read())
+                    {
+                        var item = Task.Create(
+                            reader.GetInt64(0),
+                            reader.GetString(1),
+                            reader.IsDBNull(4) ? default : reader.GetString(4))
+                        .SetStatus(reader.GetInt64(2))
+                        .SetPriority(reader.GetInt64(3))
+                        .SetCommitment(reader.GetDateTime(5));
+
+                        response.Add(item);
+                    }
+                }
+            }
+            return response;
         }
     }
 }

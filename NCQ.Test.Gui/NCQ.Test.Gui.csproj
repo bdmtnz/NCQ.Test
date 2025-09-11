@@ -315,8 +315,10 @@
     <Compile Include="Domain\Common\Contracts\Common\ICommand.cs" />
     <Compile Include="Domain\Common\Contracts\Common\IQuery.cs" />
     <Compile Include="Domain\Common\Contracts\Gui\IValueModal.cs" />
-    <Compile Include="Domain\Common\Contracts\Repositories\ITaskRepository.cs" />
+    <Compile Include="Domain\Common\Contracts\Repositories\Tasks\ITaskRepository.cs" />
     <Compile Include="Domain\Common\Contracts\Repositories\ITermRepository.cs" />
+    <Compile Include="Domain\Common\Contracts\Repositories\Tasks\TaskFilterBuilder.cs" />
+    <Compile Include="Domain\Common\Contracts\Repositories\Tasks\TaskFilterDto.cs" />
     <Compile Include="Domain\Common\Contracts\Service\ITaskService.cs" />
     <Compile Include="Domain\Common\Contracts\Service\ITermService.cs" />
     <Compile Include="Domain\Tasks\Task.cs" />

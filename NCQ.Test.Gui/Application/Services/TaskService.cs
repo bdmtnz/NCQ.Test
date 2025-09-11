@@ -1,9 +1,11 @@
 ﻿using NCQ.Test.Domain.Tasks;
 using NCQ.Test.Gui.Domain.Common.Contracts.Persistence;
 using NCQ.Test.Gui.Domain.Common.Contracts.Persistence.Repositories;
+using NCQ.Test.Gui.Domain.Common.Contracts.Repositories.Tasks;
 using NCQ.Test.Gui.Domain.Common.Contracts.Service;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Text.Json;
 
 namespace NCQ.Test.Gui.Application.Services
 {
@@ -94,6 +96,15 @@ namespace NCQ.Test.Gui.Application.Services
 
             var cacheByKey = $"cache.{nameof(TaskService)}.get.{entity.Id}";
             _cache.Remove(cacheByKey);
+
+            return result;
+        }
+
+        public async System.Threading.Tasks.Task<List<Task>> Filter(TaskFilterDto dto)
+        {
+            await _connection.OpenAsync();
+            var result = await _task.Filter(dto);
+            _connection.Close();
 
             return result;
         }

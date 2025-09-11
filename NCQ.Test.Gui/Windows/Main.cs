@@ -3,6 +3,7 @@ using MapsterMapper;
 using Microsoft.Extensions.DependencyInjection;
 using NCQ.Test.Domain.Terms;
 using NCQ.Test.Gui.Domain.Common;
+using NCQ.Test.Gui.Domain.Common.Contracts.Repositories.Tasks;
 using NCQ.Test.Gui.Domain.Common.Contracts.Service;
 using NCQ.Test.Gui.Windows;
 using NCQ.Test.Gui.Windows.Components.Alter;
@@ -200,8 +201,9 @@ namespace NCQ.Test.Gui
 
         private async void BtnFilter_Click(object sender, EventArgs e)
         {
-            var vm = _viewModel;
-            await _task.Get();
+            var dto = _viewModel.Adapt<TaskFilterDto>();
+            var tasks = await _task.Filter(dto);
+            GridTasks.DataSource = tasks;
         }
 
         private void BtnClean_Click(object sender, EventArgs e)
