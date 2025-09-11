@@ -345,6 +345,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Windows\MainContextMenuSettingFactory.cs" />
     <Content Include="favicon.ico" />
     <EmbeddedResource Include="Windows\Components\Alter\AlterModal.resx">
       <DependentUpon>AlterModal.cs</DependentUpon>

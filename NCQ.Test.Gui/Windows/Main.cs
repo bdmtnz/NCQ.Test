@@ -1,8 +1,10 @@
 ﻿using Mapster;
 using MapsterMapper;
 using Microsoft.Extensions.DependencyInjection;
+using NCQ.Test.Domain.Terms;
 using NCQ.Test.Gui.Domain.Common;
 using NCQ.Test.Gui.Domain.Common.Contracts.Service;
+using NCQ.Test.Gui.Windows;
 using NCQ.Test.Gui.Windows.Components.Alter;
 using System;
 using System.Collections.Generic;
@@ -17,17 +19,21 @@ namespace NCQ.Test.Gui
         private readonly IMapper _mapper;
         private readonly ITermService _term;
         private readonly ITaskService _task;
+        private readonly MainContextMenuSettingFactory _contextConfigurator;
 
-        private IDictionary<string, List<ComboItem>> combos = new Dictionary<string, List<ComboItem>>();
-        private Test.Domain.Tasks.Task focused = default;
+		private List<Term> states = new List<Term>();
+		private List<Term> priorities = new List<Term>();
+		private IDictionary<string, List<ComboItem>> combos = new Dictionary<string, List<ComboItem>>();
+		private Test.Domain.Tasks.Task focused = default;
 
         public Main(IServiceProvider provider)
         {
             _mapper = provider.GetService<IMapper>();
             _term = provider.GetService<ITermService>();
             _task = provider.GetService<ITaskService>();
+            _contextConfigurator = new MainContextMenuSettingFactory("ContextMenuBtn");
 
-            InitializeComponent();
+			InitializeComponent();
 			FormBorderStyle = FormBorderStyle.FixedSingle;
 
 			Initialize();
@@ -61,7 +67,8 @@ namespace NCQ.Test.Gui
                 var states = stateTerm.Terms
                     .ToList()
                     .ConvertAll(_mapper.Map<ComboItem>);
-                combos.Add("STATES", states);
+				combos.Add("STATES", states);
+				this.states.AddRange(stateTerm.Terms);
 
 				InitializeStatusRepository(states);
             }
@@ -73,6 +80,7 @@ namespace NCQ.Test.Gui
                     .ToList()
                     .ConvertAll(_mapper.Map<ComboItem>);
                 combos.Add("PRIORITIES", priorities);
+                this.priorities.AddRange(priorityTerm.Terms);
 
 				InitializePriorityRepository(priorities);
 			}
@@ -110,6 +118,16 @@ namespace NCQ.Test.Gui
 			catch { }
 		}
 
+        private void ContextMenuConfigurator(Test.Domain.Tasks.Task task)
+		{
+			var state = states.FirstOrDefault(t => t.Id == task.StatusId);
+			if (state != null)
+			{
+				var setup = _contextConfigurator.Setup(state.Code);
+				setup.Invoke(ContextMenuRow);
+			}
+        }
+
         private void GridTasks_MouseDown(object sender, MouseEventArgs e)
         {
 			if (e.Button == MouseButtons.Right)
@@ -124,7 +142,8 @@ namespace NCQ.Test.Gui
 					view.FocusedRowHandle = hitInfo.RowHandle;
 
 					object rowData = view.GetRow(hitInfo.RowHandle);
-                    focused = rowData as Test.Domain.Tasks.Task;
+                    var row = focused = rowData as Test.Domain.Tasks.Task;
+					ContextMenuConfigurator(row);
 
 					ContextMenuRow.Show(Cursor.Position);
 				}

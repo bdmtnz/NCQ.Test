@@ -48,8 +48,8 @@
             this.HTProfile = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.ContextMenuRow = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ContextMenuEditBtn = new System.Windows.Forms.ToolStripMenuItem();
-            this.ContextMenuRemoveBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.ContextMenuBtnEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.ContextMenuBtnRemove = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.GridTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GidViewTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriorityRepository)).BeginInit();
@@ -218,24 +218,24 @@
             // ContextMenuRow
             // 
             this.ContextMenuRow.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ContextMenuEditBtn,
-            this.ContextMenuRemoveBtn});
+            this.ContextMenuBtnEdit,
+            this.ContextMenuBtnRemove});
             this.ContextMenuRow.Name = "ContextMenuRow";
-            this.ContextMenuRow.Size = new System.Drawing.Size(118, 48);
+            this.ContextMenuRow.Size = new System.Drawing.Size(181, 70);
             // 
-            // ContextMenuEditBtn
+            // ContextMenuBtnEdit
             // 
-            this.ContextMenuEditBtn.Name = "ContextMenuEditBtn";
-            this.ContextMenuEditBtn.Size = new System.Drawing.Size(180, 22);
-            this.ContextMenuEditBtn.Text = "Editar";
-            this.ContextMenuEditBtn.Click += new System.EventHandler(this.ContextMenuEditBtn_Click);
+            this.ContextMenuBtnEdit.Name = "ContextMenuBtnEdit";
+            this.ContextMenuBtnEdit.Size = new System.Drawing.Size(180, 22);
+            this.ContextMenuBtnEdit.Text = "Editar";
+            this.ContextMenuBtnEdit.Click += new System.EventHandler(this.ContextMenuEditBtn_Click);
             // 
-            // ContextMenuRemoveBtn
+            // ContextMenuBtnRemove
             // 
-            this.ContextMenuRemoveBtn.Name = "ContextMenuRemoveBtn";
-            this.ContextMenuRemoveBtn.Size = new System.Drawing.Size(180, 22);
-            this.ContextMenuRemoveBtn.Text = "Eliminar";
-            this.ContextMenuRemoveBtn.Click += new System.EventHandler(this.ContextMenuRemoveBtn_Click);
+            this.ContextMenuBtnRemove.Name = "ContextMenuBtnRemove";
+            this.ContextMenuBtnRemove.Size = new System.Drawing.Size(180, 22);
+            this.ContextMenuBtnRemove.Text = "Eliminar";
+            this.ContextMenuBtnRemove.Click += new System.EventHandler(this.ContextMenuRemoveBtn_Click);
             // 
             // Main
             // 
@@ -287,8 +287,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit StatusRepository;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
         private System.Windows.Forms.ContextMenuStrip ContextMenuRow;
-        private System.Windows.Forms.ToolStripMenuItem ContextMenuEditBtn;
-        private System.Windows.Forms.ToolStripMenuItem ContextMenuRemoveBtn;
+        private System.Windows.Forms.ToolStripMenuItem ContextMenuBtnEdit;
+        private System.Windows.Forms.ToolStripMenuItem ContextMenuBtnRemove;
     }
 }
 
